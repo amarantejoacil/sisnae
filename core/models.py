@@ -14,15 +14,36 @@ class Base(models.Model):
 
 
 class Pessoa(Base):
+    cidade = models.ForeignKey("Cidade", on_delete=models.RESTRICT, null=True)
+    banco = models.ForeignKey("Banco", on_delete=models.RESTRICT, null= True)
     nome = models.CharField('Nome', max_length=150)
+    data_nascimento = models.DateField('Data de nascimento', null=True)
+    pessoa_status = models.BooleanField('Pessoa ativa?', default=True)
+
+    def __str__(self):
+        return self.nome
 
 
-class Aluno(Pessoa):
+class Aluno(models.Model):
+    pessoa = models.ForeignKey("Pessoa", on_delete=models.CASCADE, null=True)
     matricula = models.IntegerField('Matricula', unique=True)
+    aluno_status = models.BooleanField('Aluno ativo? ', default=True)
+
+    def __str__(self):
+        return str(self.matricula)
 
 
-"""
-class Banco(Base):
-    banco_id = models.IntegerField(primary_key=True)
+class Cidade(Base):
     descricao = models.CharField('Descrição', max_length=100)
-"""
+    cidade_status = models.BooleanField('Cidade ativa?', default=True)
+
+    def __str__(self):
+        return self.descricao
+
+
+class Banco(Base):
+    descricao = models.CharField('Descrição', max_length=100)
+    banco_status = models.BooleanField('Banco ativo?', default=True)
+
+    def __str__(self):
+        return self.descricao
