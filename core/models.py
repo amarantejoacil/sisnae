@@ -24,13 +24,6 @@ class Pessoa(Base):
         return self.nome
 
 
-class Aluno(models.Model):
-    pessoa = models.ForeignKey("Pessoa", on_delete=models.CASCADE, null=True)
-    matricula = models.IntegerField('Matricula', unique=True)
-    aluno_status = models.BooleanField('Aluno ativo? ', default=True)
-
-    def __str__(self):
-        return str(self.matricula)
 
 
 class Cidade(Base):
