@@ -1,7 +1,9 @@
 from django.db import models
 from core.models import Base
 
+
 class Inscricao(Base):
+
     situacao_obs = models.CharField('Observação da inscrição', max_length=200, null=True)
 
 
@@ -19,4 +21,4 @@ class Modalidade(Base):
     modalidade_status = models.BooleanField('Modalidade ativa?', default=True)
 
     def __str__(self):
-        return str(self.modalidade_desc)
+        return self.modalidade_desc

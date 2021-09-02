@@ -70,6 +70,11 @@ class Aluno(models.Model):
     aluno_gestante = models.BooleanField('Aluna está Gestante? ', default=False)
     aluno_lactante = models.BooleanField('Você é Lactante? ', default=False)
     aluno_medicacao = models.BooleanField('Medicamentos de Uso Regular?', default=False)
+    aluno_medicacao_desc = models.CharField('Informe a medicação', max_length=100, null=True, blank=True)
+    aluno_medicacao_cid = models.CharField('Informe o CID (Classificação '
+                                           'Internacional de Doenças)', max_length=100,
+                                           null=True, blank=True)
+
 
     IncPor = models.IntegerField('Incluido Por', null=True, blank=True)
     AltPor = models.IntegerField('Alterado Por', null=True, blank=True)
@@ -84,3 +89,19 @@ class Aluno(models.Model):
 
 
 
+class AlunoAnexo(Base):
+    aluno = models.ForeignKey("Aluno", on_delete=models.CASCADE)
+    TIPO_ANEXO = (
+        (1, "Valor Gasto com Van"),
+        (2, "Valor Gasto com Aluguel ou Financiamento do Imovel"),
+        (3, "Valor Gasto com Energia"),
+        (4, "Valor Gasto com Água"),
+        (5, "Valor Gasto com Conomínio"),
+        (6, "Valor Gasto com Medicação"),
+    )
+    aluno_anexo_tipo = models.IntegerField('Inclua os anexos das suas despesas', choices=TIPO_ANEXO)
+    aluno_anexo_valor = models.DecimalField('Informe o valor do anexo', max_digits=8, decimal_places=2)
+
+
+    def __str__(self):
+        return str(self.aluno_anexo_tipo)
