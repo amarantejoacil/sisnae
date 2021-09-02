@@ -62,9 +62,12 @@ class Pessoa(Base):
     )
 
     nome_pai = models.CharField('Nome do Pai', max_length=100, null=True, blank=True)
-    escolaridade_pai = models.IntegerField('Escolaridade do Pai', choices=ESCOLARIDADE_CHOICES)
+    escolaridade_pai = models.IntegerField('Escolaridade do Pai',
+                                           choices=ESCOLARIDADE_CHOICES, null=True, blank=True)
+
     nome_mae = models.CharField('Nome da Mãe', max_length=100)
-    escolaridade_mae = models.IntegerField('Escolaridade da Mãe', choices=ESCOLARIDADE_CHOICES)
+    escolaridade_mae = models.IntegerField('Escolaridade da Mãe',
+                                           choices=ESCOLARIDADE_CHOICES)
 
 
 
