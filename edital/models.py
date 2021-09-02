@@ -18,14 +18,11 @@ class Edital(Base):
         return self.descricao
 
 
-
-
 class PublicacaoEdital(Base):
     edital = models.ForeignKey("Edital", on_delete=models.CASCADE)
     publicacao_descricao = models.CharField('Descrição', max_length=150)
     publicacao_anexo_arq = models.CharField(max_length=100)
     publicacao_data = models.DateField('Data da publicação', null=True, blank=True)
-
 
     def __str__(self):
         return self.publicacao_descricao

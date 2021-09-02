@@ -101,7 +101,7 @@ class AlunoAnexo(Base):
     )
     aluno_anexo_tipo = models.IntegerField('Inclua os anexos das suas despesas', choices=TIPO_ANEXO)
     aluno_anexo_valor = models.DecimalField('Informe o valor do anexo', max_digits=8, decimal_places=2)
-
+    aluno_anexo_arq = models.CharField('Anexo/Comprovante', max_length=100)
 
     def __str__(self):
         return str(self.aluno_anexo_tipo)

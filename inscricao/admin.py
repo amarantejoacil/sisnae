@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Inscricao, Situacao, Modalidade
+from .models import Inscricao, Modalidade
 
 @admin.register(Inscricao)
 class Inscricao(admin.ModelAdmin):
@@ -9,10 +9,11 @@ class Inscricao(admin.ModelAdmin):
    #def __str__(self):
     #    return self.descricao
 
+"""
 @admin.register(Situacao)
 class Situacao(admin.ModelAdmin):
-    list_display = ('descricao', 'situacao_status')
-
+    list_display = ('descricao', )
+"""
 
 @admin.register(Modalidade)
 class ModalidadeAluno(admin.ModelAdmin):
