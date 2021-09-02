@@ -3,12 +3,15 @@ from django.db import models
 
 
 class Edital(Base):
-    descricao = models.CharField('Descrição', max_length=100)
+    titulo = models.CharField('Título do Edital', max_length=200)
+    descricao = models.CharField('Descrição', max_length=200)
     numero = models.PositiveIntegerField('Nº do Edital')
     ano = models.PositiveIntegerField('Informe o ano do Edital')
     data_hora_inicio = models.DateTimeField('Validade Data/Hora Inicio:', null=True)
     data_hora_fim = models.DateTimeField('Validade Data/Hora Inicio:', null=True)
     edital_status = models.BooleanField('Edital ativo?', default=True)
+    modalidade_edital = models.ForeignKey("ModalidadeEdital", on_delete=models.CASCADE)
+    setor = models.ForeignKey("SetorEdital", on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Edital'
@@ -30,3 +33,27 @@ class PublicacaoEdital(Base):
     class Meta:
         verbose_name = 'Publicação'
         verbose_name_plural = 'Publicações'
+
+class ModalidadeEdital(Base):
+    modalidade_desc = models.CharField('Descricao', max_length=100)
+    modalidade_status = models.BooleanField('Modalidade ativa?', default=True)
+
+    def __str__(self):
+        return self.modalidade_desc
+
+    class Meta:
+        verbose_name = 'Modalidade'
+        verbose_name_plural = 'Modalidades'
+
+
+class SetorEdital(Base):
+    setor_descricao = models.CharField('Nome do Setor', max_length=200)
+    setor_siglas = models.CharField('Sigla do Setor', max_length=20)
+    setor_status = models.BooleanField('Ativo?', default=True)
+
+    def __str__(self):
+        return self.setor_descricao
+
+    class Meta:
+        verbose_name = 'Setor'
+        verbose_name_plural = 'Setores'

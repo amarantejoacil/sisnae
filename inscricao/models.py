@@ -8,7 +8,6 @@ from edital.models import Edital
 class Inscricao(Base):
     aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
     edital = models.ForeignKey(Edital, on_delete=models.CASCADE)
-    modalidade = models.ForeignKey("Modalidade", on_delete=models.CASCADE)
 
     SITUACAO_INSCRICAO = (
         (1, 'inscrição realizada'),
@@ -42,9 +41,4 @@ class Situacao(Base):
 """
 
 
-class Modalidade(Base):
-    modalidade_desc = models.CharField('Descricao', max_length=100)
-    modalidade_status = models.BooleanField('Modalidade ativa?', default=True)
 
-    def __str__(self):
-        return self.modalidade_desc

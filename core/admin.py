@@ -14,12 +14,12 @@ class AdminPessoa(admin.ModelAdmin):
 
 @admin.register(Cidade)
 class AdminCidade(admin.ModelAdmin):
-    list_display = ('descricao', 'cidade_status', 'IncEm', 'AltEm', 'IncPor', 'AltPor', )
+    list_display = ('id', 'descricao', 'cidade_status', 'IncEm', 'AltEm', 'IncPor', 'AltPor', )
 
 
 @admin.register(Banco)
 class AdminBanco(admin.ModelAdmin):
-    list_display = ('descricao', 'banco_status', 'IncEm', 'AltEm', 'IncPor', 'AltPor', )
+    list_display = ('id', 'descricao', 'banco_status', 'IncEm', 'AltEm', 'IncPor', 'AltPor', )
 
 
 
