@@ -5,9 +5,9 @@ from .models import Pessoa, Cidade, Banco
 
 @admin.register(Pessoa)
 class AdminPessoa(admin.ModelAdmin):
-    list_display = ('id', 'nome', 'cidade', 'IncEm', 'AltEm', 'IncPor', 'AltPor', 'pessoa_status')
-    list_display_links = ('id', 'nome')
-    search_fields = ('nome', )
+    list_display = ('id', 'nome', 'cpf', 'rg', 'email', 'data_nascimento', 'pessoa_status')
+    list_display_links = ('id', 'nome', 'cpf')
+    search_fields = ('nome', 'cpf')
     list_filter = ('cidade', 'pessoa_status')
     list_editable = ('pessoa_status', )
     list_per_page = 15

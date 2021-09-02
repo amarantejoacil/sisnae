@@ -3,7 +3,8 @@ from .models import Inscricao, Modalidade
 
 @admin.register(Inscricao)
 class Inscricao(admin.ModelAdmin):
-    list_display = ('situacao_obs', )  # 'IncEm', 'AltEm', 'IncPor', 'AltPor', 'status_aluno')
+    list_display = ('aluno', 'edital', 'modalidade', 'inscricao_situacao',
+                    'situacao_obs')  # 'IncEm', 'AltEm', 'IncPor', 'AltPor', 'status_aluno')
 
 
    #def __str__(self):

@@ -9,8 +9,24 @@ class Inscricao(Base):
     aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
     edital = models.ForeignKey(Edital, on_delete=models.CASCADE)
     modalidade = models.ForeignKey("Modalidade", on_delete=models.CASCADE)
-    #situacao = models.ManyToManyField("Situacao")
-    situacao_obs = models.CharField('Observação da inscrição', max_length=200, null=True)
+
+    SITUACAO_INSCRICAO = (
+        (1, 'inscrição realizada'),
+        (2, 'realizar correção'),
+        (3, 'inscrição deferida'),
+        (4, 'inscrição indeferida'),
+    )
+    inscricao_situacao = models.IntegerField(choices=SITUACAO_INSCRICAO, default=1)
+
+    situacao_obs = models.CharField('Observação da inscrição', max_length=200, null=True, blank=True)
+
+
+    def __str__(self):
+        return str(self.aluno)
+
+    class Meta:
+        verbose_name = 'Inscrição'
+        verbose_name_plural = 'Inscrições'
 
 """
 class Situacao(Base):
