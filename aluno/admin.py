@@ -3,7 +3,7 @@ from .models import Aluno, Modalidade
 
 @admin.register(Aluno)
 class AdminAluno(admin.ModelAdmin):
-    list_display = ('matricula', 'aluno_status' )  #'IncEm', 'AltEm', 'IncPor', 'AltPor', 'status_aluno')
+    list_display = ('aluno_matricula', 'aluno_status' )  #'IncEm', 'AltEm', 'IncPor', 'AltPor', 'status_aluno')
 
 
 @admin.register(Modalidade)
