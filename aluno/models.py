@@ -7,6 +7,7 @@ from stdimage.models import StdImageField
 from django.contrib.auth import get_user_model
 
 class Aluno(models.Model):
+    aluno_status = models.BooleanField('Aluno ativo? ', default=True)
     pessoa = models.ForeignKey(Pessoa, on_delete=models.CASCADE, null=True)
     curso = models.ForeignKey(Curso, on_delete=models.RESTRICT)
     semestre = models.ForeignKey(Semestre, on_delete=models.RESTRICT)
@@ -30,14 +31,52 @@ class Aluno(models.Model):
         (8, "Aproximadamente 17.5km"),
         (9, "Aproximadamente 20km"),
         (10, "Aproximadamente 30km"),
-        (11, "acima de 30km"),
+        (11, "Acima de 30km"),
     )
-
-    aluno_dist_escola = models.IntegerField('Distância aproximada da residência ao Campus Várzea Grande em KM?',
+    aluno_dist_escola = models.IntegerField('Distância aproximada da residência ao Campus em KM?',
                                             choices=DISTANCIA_RESIDENCIA)
 
+    TRANSPORTE_CAMPUS = (
+        (1, "Transporte Coletivo"),
+        (2, "Van"),
+        (3, "Carro"),
+        (4, "Moto"),
+        (5, "A pé"),
+        (6, "Carona"),
+        (7, "Bicicleta"),
+    )
 
-    aluno_status = models.BooleanField('Aluno ativo? ', default=True)
+    aluno_transporte = models.IntegerField('Informe o meio de transporte '
+                                           'utilizado para chegar ao Campus?', choices=TRANSPORTE_CAMPUS)
+
+
+
+    TEMPO_CAMPUS = (
+        (1, "Aproximadamente 5 minutos"),
+        (2, "Aproximadamente 10 minutos"),
+        (3, "Aproximadamente 15 minutos"),
+        (4, "Aproximadamente 20 minutos"),
+        (5, "Aproximadamente 25 minutos"),
+        (6, "Aproximadamente 30 minutos"),
+        (7, "Aproximadamente 45 minutos"),
+        (8, "Aproximadamente 1 hora"),
+        (9, "Aproximadamente 1 hora e 30 minutos"),
+        (10, "Aproximadamente 2 horas"),
+        (11, "Acima de 2 horas"),
+    )
+    aluno_tempo_escola = models.IntegerField('Tempo que o (a) estudante gasta da sua '
+                                             'residência ao Campus', choices=TEMPO_CAMPUS)
+
+    aluno_gestante = models.BooleanField('Aluna está Gestante? ', default=False)
+    aluno_lactante = models.BooleanField('Você é Lactante? ', default=False)
+    aluno_medicacao = models.BooleanField('Medicamentos de Uso Regular?', default=False)
+
+    IncPor = models.IntegerField('Incluido Por', null=True, blank=True)
+    AltPor = models.IntegerField('Alterado Por', null=True, blank=True)
+    IncEm = models.DateTimeField('Incluido Em', auto_now_add=True)
+    AltEm = models.DateTimeField('Alterado Em', auto_now=True)
+
+
 
 
     def __str__(self):
