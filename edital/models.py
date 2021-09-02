@@ -10,8 +10,8 @@ class Edital(Base):
     data_hora_inicio = models.DateTimeField('Validade Data/Hora Inicio:', null=True)
     data_hora_fim = models.DateTimeField('Validade Data/Hora Inicio:', null=True)
     edital_status = models.BooleanField('Edital ativo?', default=True)
-    modalidade_edital = models.ForeignKey("ModalidadeEdital", on_delete=models.CASCADE)
-    setor = models.ForeignKey("SetorEdital", on_delete=models.CASCADE)
+    modalidade_edital = models.ForeignKey("ModalidadeEdital", on_delete=models.RESTRICT)
+    setor = models.ForeignKey("SetorEdital", on_delete=models.RESTRICT)
 
     class Meta:
         verbose_name = 'Edital'
@@ -22,7 +22,7 @@ class Edital(Base):
 
 
 class PublicacaoEdital(Base):
-    edital = models.ForeignKey("Edital", on_delete=models.CASCADE)
+    edital = models.ForeignKey("Edital", on_delete=models.RESTRICT)
     publicacao_descricao = models.CharField('Descrição', max_length=150)
     publicacao_anexo_arq = models.CharField(max_length=100)
     publicacao_data = models.DateField('Data da publicação', null=True, blank=True)
