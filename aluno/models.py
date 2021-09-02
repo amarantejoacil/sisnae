@@ -8,7 +8,6 @@ from django.contrib.auth import get_user_model
 class Aluno(models.Model):
     pessoa = models.ForeignKey(Pessoa, on_delete=models.CASCADE, null=True)
     curso = models.ForeignKey(Curso, on_delete=models.RESTRICT, null=True)
-    #modalidade = models.ManyToManyField("Modalidade")
     matricula = models.IntegerField('Matricula', unique=True)
     aluno_status = models.BooleanField('Aluno ativo? ', default=True)
 

@@ -8,5 +8,9 @@ class Edital(Base):
     data_inicio = models.DateTimeField('Validade Data/Hora Inicio:', null=True)
     data_fim = models.DateTimeField('Validade Data/Hora Inicio:', null=True)
 
+    class Meta:
+        verbose_name = 'Edital'
+        verbose_name_plural = 'Editais'
+
     def __str__(self):
         return self.descricao
