@@ -74,8 +74,6 @@ class Pessoa(Base):
 
 
 
-
-
     pessoa_status = models.BooleanField('Pessoa ativa?', default=True)
 
 
