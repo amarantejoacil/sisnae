@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Aluno, Modalidade
+from .models import Aluno
 
 @admin.register(Aluno)
 class AdminAluno(admin.ModelAdmin):
@@ -10,7 +10,3 @@ class AdminAluno(admin.ModelAdmin):
     list_filter = ('aluno_matricula', 'aluno_status')
     #list_editable = ('pessoa_status',)
     list_per_page = 15
-
-@admin.register(Modalidade)
-class ModalidadeAluno(admin.ModelAdmin):
-    list_display = ('modalidade_desc', 'modalidade_status' )

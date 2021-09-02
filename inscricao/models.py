@@ -12,3 +12,11 @@ class Situacao(Base):
     class Meta:
         verbose_name = 'Situação'
         verbose_name_plural = 'Situações'
+
+
+class Modalidade(Base):
+    modalidade_desc = models.CharField('Descricao', max_length=100)
+    modalidade_status = models.BooleanField('Modalidade ativa?', default=True)
+
+    def __str__(self):
+        return str(self.modalidade_desc)
