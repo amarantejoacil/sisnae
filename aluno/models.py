@@ -17,8 +17,8 @@ class Aluno(models.Model):
         ('A', "Por Ampla Concorrência"),
         ('C', "Por Meio de Cota"),
     )
-    aluno_form_ingre = models.CharField('Forma de Ingresso', choices=FORMA_INGRESSO_CHOICES, max_length=1)
-
+    aluno_form_ingre = models.CharField('Forma de Ingresso', choices=FORMA_INGRESSO_CHOICES,
+                                        max_length=1)
 
     DISTANCIA_RESIDENCIA = (
         (1, "Aproximadamente 1km"),

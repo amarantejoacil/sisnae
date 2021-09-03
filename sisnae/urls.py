@@ -27,6 +27,6 @@ urlpatterns = [
     path('inscricao/', include('inscricao.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-admin.AdminSite.site_header = 'SISNAE - Sistema do Núcleo de Assistência Estudantil'
+admin.AdminSite.site_header = 'SISNAE - VGD'
 admin.AdminSite.site_title = 'Sistema do Núcleo de Assistência Estudantil'
 admin.AdminSite.index_title = 'Sistema do Núcleo de Assistência Estudantil'

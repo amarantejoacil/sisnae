@@ -3,8 +3,8 @@ from django.db import models
 
 
 class Edital(Base):
-    titulo = models.CharField('Título do Edital', max_length=200)
-    descricao = models.CharField('Descrição', max_length=200)
+    edital_descricao = models.CharField('Descrição do Edital', max_length=200)
+    edital_titulo = models.CharField('Titulo', max_length=200)
     numero = models.PositiveIntegerField('Nº do Edital')
     ano = models.PositiveIntegerField('Informe o ano do Edital')
     data_hora_inicio = models.DateTimeField('Validade Data/Hora Inicio:', null=True)
@@ -18,7 +18,7 @@ class Edital(Base):
         verbose_name_plural = 'Editais'
 
     def __str__(self):
-        return self.descricao
+        return self.edital_titulo
 
 
 class PublicacaoEdital(Base):
@@ -33,6 +33,7 @@ class PublicacaoEdital(Base):
     class Meta:
         verbose_name = 'Publicação'
         verbose_name_plural = 'Publicações'
+
 
 class ModalidadeEdital(Base):
     modalidade_desc = models.CharField('Descricao', max_length=100)
