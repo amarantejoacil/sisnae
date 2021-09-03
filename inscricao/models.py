@@ -3,22 +3,17 @@ from core.models import Base
 from aluno.models import Aluno
 from edital.models import Edital
 
-
-
 class Inscricao(Base):
     aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
     edital = models.ForeignKey(Edital, on_delete=models.CASCADE)
-
     SITUACAO_INSCRICAO = (
         (1, 'inscrição realizada'),
         (2, 'realizar correção'),
         (3, 'inscrição deferida'),
         (4, 'inscrição indeferida'),
     )
-    inscricao_situacao = models.IntegerField(choices=SITUACAO_INSCRICAO, default=1)
-
     situacao_obs = models.CharField('Observação da inscrição', max_length=200, null=True, blank=True)
-
+    inscricao_situacao = models.IntegerField(choices=SITUACAO_INSCRICAO, default=1)
 
     def __str__(self):
         return str(self.aluno)

@@ -10,6 +10,9 @@ class AdminAluno(admin.ModelAdmin):
     #list_editable = ('pessoa_status',)
     list_per_page = 15
 
+    readonly_fields = ('IncPor', 'AltPor', 'IncEm', 'AltEm')
+
 @admin.register(AlunoAnexo)
 class AdminAlunoAnexo(admin.ModelAdmin):
     aluno_anexo_tipo = ('aluno_anexo_tipo', 'aluno_anexo_valor' 'IncEm', 'AltEm', 'IncPor', 'AltPor')
+    readonly_fields = ('IncPor', 'AltPor', 'IncEm', 'AltEm')

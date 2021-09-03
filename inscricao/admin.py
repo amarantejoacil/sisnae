@@ -6,6 +6,7 @@ from .models import Inscricao
 class Inscricao(admin.ModelAdmin):
     list_display = ('aluno', 'edital', 'inscricao_situacao',
                     'situacao_obs')  # 'IncEm', 'AltEm', 'IncPor', 'AltPor', 'status_aluno')
+    readonly_fields = ('IncPor', 'AltPor', 'IncEm', 'AltEm', 'inscricao_situacao', 'situacao_obs')
 
 
    #def __str__(self):
