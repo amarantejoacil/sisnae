@@ -4,6 +4,15 @@ from core.models import Base
 class Curso(Base):
     descricao = models.CharField('Descrição', max_length=100)
     semestre = models.ManyToManyField("Semestre")
+    CURSO_TIPO = (
+        (1, "Técnico"),
+        (2, "Graduação"),
+        (3, "Especialização"),
+        (4, "Mestrado"),
+        (5, "Doutorado"),
+    )
+    curso_tipo = models.IntegerField('Tipo do Curso', choices=CURSO_TIPO)
+
     curso_status = models.BooleanField('Curso ativo?', default=True)
 
 
