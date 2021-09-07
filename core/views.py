@@ -12,3 +12,7 @@ class IndexView(TemplateView):
 
 class PerguntaFreqView(TemplateView):
     template_name = 'perguntas_frequente.html'
+
+
+class EquipeView(TemplateView):
+    template_name = 'equipe.html'
