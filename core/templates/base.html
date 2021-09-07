@@ -28,7 +28,7 @@
 
 <header class="bg-light">
     <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
     <a class="navbar-brand" href="{% url 'index' %}">SISNAE</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -40,7 +40,7 @@
           <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="#">Painel do Estudante</a>
+          <a class="nav-link " href="{% url 'painel_estudante' %}">Painel do Estudante</a>
         </li>
          <li class="nav-item">
           <a class="nav-link" href="{% url 'equipe' %}">Equipe</a>
@@ -54,8 +54,7 @@
             Editais
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Editais - Inscrições abertas</a>
-            <a class="dropdown-item" href="#">Editais - Anteriores</a>
+            <a class="dropdown-item" href="#">Listar - Todos os Editais</a>
             <!--
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
@@ -85,7 +84,7 @@
 
 {% endblock %}
 
-<footer class="text-muted py-5 bg-light">
+<footer class="text-center py-5 bg-light">
   <div class="container ">
     <p class="float-end mb-1">
       <a href="#">Topo da página</a>
