@@ -1,5 +1,5 @@
 {% load bootstrap4 %}
-{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -27,14 +27,14 @@
   <body>
 
 <header class="bg-light">
-    <div class="container">
+    <div class="container ">
     <nav class="navbar navbar-expand-lg navbar-light bg-light ">
     <a class="navbar-brand" href="{% url 'index' %}">SISNAE</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
@@ -79,6 +79,7 @@
     </div>
   </nav>
   </div>
+    {% bootstrap_javascript jquery='full' %}
 </header>
 
 {% block content %}
@@ -94,7 +95,7 @@
     <p class="mb-0">Desenvolvido por: <a  href="http://lattes.cnpq.br/2923700707849440" target="_blank">Joacil Amarante de Paula Junior</a></p>
   </div>
 </footer>
-  {% bootstrap_javascript jquery='full' %}
-  </body>
+
+ </body>
 
 </html>
