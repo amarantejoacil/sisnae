@@ -21,3 +21,16 @@ class EquipeView(TemplateView):
 
 class PainelEstudanteView(TemplateView):
     template_name = 'painel_estudante.html'
+
+
+class TodosEditaisView(TemplateView):
+    template_name = 'todos_editais.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(TodosEditaisView, self).get_context_data(**kwargs)
+        context['editais'] = Edital.objects.all()
+        return context
+
+
+
+

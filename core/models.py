@@ -68,14 +68,7 @@ class Pessoa(Base):
     nome_mae = models.CharField('Nome da Mãe', max_length=100)
     escolaridade_mae = models.IntegerField('Escolaridade da Mãe',
                                            choices=ESCOLARIDADE_CHOICES)
-
-
-
-
-
-
     pessoa_status = models.BooleanField('Pessoa ativa?', default=True)
-
 
     class Meta:
         verbose_name = 'Pessoa'
