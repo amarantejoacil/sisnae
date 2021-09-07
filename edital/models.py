@@ -13,6 +13,7 @@ class Edital(Base):
     modalidade_edital = models.ForeignKey("ModalidadeEdital", on_delete=models.RESTRICT)
     setor = models.ForeignKey("SetorEdital", on_delete=models.RESTRICT)
 
+
     class Meta:
         verbose_name = 'Edital'
         verbose_name_plural = 'Editais'
