@@ -44,18 +44,19 @@
 
 
             <div class="card-body">
-              <p class="card-text">{{ e.edital_descricao }}</p>
+              <p class="card-text">{{ e.edital_titulo }}</p>
               <!--<p>N° Edital: {{ e.numero }}/{{ e.ano }}</p> -->
               <!-- <p>Modalidade: {{ e.modalidade_edital }}</p> -->
               <p><strong>Inscrições inicio:</strong></p>
               <p>{{ e.data_hora_inicio }} </p>
               <p> <strong>Inscrições fim: </strong></p>
              <p>{{ e.data_hora_fim }}</p>
+                 <p> {{ e.semestre_edital }}° SEMESTRE - {{ e.ano }}</p>
                 {% if e.edital_status == True %}
-                     <p><strong>Situação: Ativo </strong></p>
+                     <p>Situação: Ativo </p>
                 {% endif %}
                 {% if e.edital_status == False %}
-                     <p><strong>Situação: Encerrada </strong></p>
+                     <p>Situação: Encerrada </p>
                 {% endif %}
 
 

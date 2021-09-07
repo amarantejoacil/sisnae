@@ -3,7 +3,9 @@ from .models import Edital, PublicacaoEdital, ModalidadeEdital, SetorEdital
 
 @admin.register(Edital)
 class EditalAdmin(admin.ModelAdmin):
-    list_display = ('id', 'edital_titulo', 'edital_descricao', 'modalidade_edital', 'numero', 'ano', 'data_hora_inicio', 'data_hora_fim', 'setor')  # 'IncEm', 'AltEm', 'IncPor', 'AltPor', 'status_aluno')
+    list_display = ('id', 'edital_titulo', 'modalidade_edital', 'numero', 'ano', 'data_hora_inicio',
+                    'data_hora_fim', 'setor', 'semestre_edital')
+    # 'IncEm', 'AltEm', 'IncPor', 'AltPor', 'status_aluno')
     readonly_fields = ('IncPor', 'AltPor', 'IncEm', 'AltEm')
 
 @admin.register(PublicacaoEdital)

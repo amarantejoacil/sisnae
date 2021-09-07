@@ -3,12 +3,17 @@ from django.db import models
 
 
 class Edital(Base):
-    edital_descricao = models.CharField('Descrição do Edital', max_length=200)
-    edital_titulo = models.CharField('Titulo', max_length=200)
+    edital_descricao = models.CharField('Descrição', max_length=200)
+    edital_titulo = models.CharField('Título', max_length=200)
     numero = models.PositiveIntegerField('Nº do Edital')
-    ano = models.PositiveIntegerField('Informe o ano do Edital')
-    data_hora_inicio = models.DateTimeField('Validade Data/Hora Inicio:', null=True)
-    data_hora_fim = models.DateTimeField('Validade Data/Hora Inicio:', null=True)
+    SEMESTRE = (
+        (1, "1° Semestre"),
+        (2, "2° Semestre"),
+    )
+    semestre_edital = models.IntegerField('Semestre', choices=SEMESTRE)
+    ano = models.PositiveIntegerField('Ano')
+    data_hora_inicio = models.DateTimeField('Validade Inicio:', null=True)
+    data_hora_fim = models.DateTimeField('Validade Fim:', null=True)
     edital_status = models.BooleanField('Edital ativo?', default=True)
     modalidade_edital = models.ForeignKey("ModalidadeEdital", on_delete=models.RESTRICT)
     setor = models.ForeignKey("SetorEdital", on_delete=models.RESTRICT)
