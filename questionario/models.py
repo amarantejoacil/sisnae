@@ -1,10 +1,12 @@
 from django.db import models
 from core.models import Base
 from aluno.models import Aluno
+from edital.models import Edital
 
 
 class Questionario(Base):
-    #aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
+    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
+    edital = models.ForeignKey(Edital, on_delete=models.CASCADE)
     QUEST_FORMA_INGRESSO = (
         ('A', "Por Ampla Concorrência"),
         ('C', "Por Meio de Cota"),
@@ -71,3 +73,25 @@ class Questionario(Base):
     class Meta:
         verbose_name = 'Questionário'
         verbose_name_plural = 'Questionários'
+
+
+class QuestionarioAnexo(Base):
+    #aluno = models.ForeignKey("Aluno", on_delete=models.CASCADE)
+    #edital = models.ForeignKey(Edital, on_delete=models.CASCADE)
+    TIPO_ANEXO = (
+        (1, "Valor Gasto com Van"),
+        (2, "Valor Gasto com Aluguel ou Financiamento do Imovel"),
+        (3, "Valor Gasto com Energia"),
+        (4, "Valor Gasto com Água"),
+        (5, "Valor Gasto com Conomínio"),
+        (6, "Valor Gasto com Medicação"),
+    )
+    quest_aluno_anexo_tipo = models.IntegerField('Inclua os anexos das suas despesas', choices=TIPO_ANEXO)
+    quest_aluno_anexo_valor = models.DecimalField('Informe o valor do anexo', max_digits=8, decimal_places=2)
+    quest_aluno_anexo_arq = models.CharField('Anexo/Comprovante', max_length=100)
+
+    def __str__(self):
+        return str(self.quest_aluno_anexo_tipo)
+
+
+

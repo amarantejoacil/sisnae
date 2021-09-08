@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Aluno, AlunoAnexo
+from .models import Aluno
 
 @admin.register(Aluno)
 class AdminAluno(admin.ModelAdmin):
@@ -12,7 +12,5 @@ class AdminAluno(admin.ModelAdmin):
 
     readonly_fields = ('IncPor', 'AltPor', 'IncEm', 'AltEm')
 
-@admin.register(AlunoAnexo)
-class AdminAlunoAnexo(admin.ModelAdmin):
-    aluno_anexo_tipo = ('aluno_anexo_tipo', 'aluno_anexo_valor' 'IncEm', 'AltEm', 'IncPor', 'AltPor')
-    readonly_fields = ('IncPor', 'AltPor', 'IncEm', 'AltEm')
+
+
