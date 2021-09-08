@@ -1,4 +1,3 @@
-{% load static %}
 <main class="bg-success">
   <br>
   <section class="py-22 text-center container">
@@ -7,8 +6,8 @@
         <h2 class="fw-light text-white">Núcleo de Assistência Estudantil  IFMT Campus Várzea Grande</h2>
         <p class="lead text-white">Desenvolvemos políticas e ações voltadas para a assistência do estudante com o intuito de favorecer sua permanência e êxito no processo de ensino e aprendizagem.</p>
         <p>
-          <a href="#" class="btn btn-primary my-2">Painel do Estudante</a>
-          <a href="#" class="btn bg-danger text-white my-2">Primeiro Acesso</a>
+          <a href="{% url 'painel_estudante' %}" class="btn btn-primary my-2">Painel do Estudante</a>
+          <a href="{% url 'primeiro_acesso' %}" class="btn bg-danger text-white my-2">Primeiro Acesso</a>
           <!--<a href="#" class="btn btn-secondary my-2">Secondary action</a>-->
         </p>
       </div>
