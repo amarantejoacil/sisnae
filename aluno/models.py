@@ -1,6 +1,7 @@
 from django.db import models
 from core.models import Pessoa, Base
 from curso.models import Curso, Semestre
+from edital.models import Edital
 
 
 from stdimage.models import StdImageField
@@ -49,8 +50,6 @@ class Aluno(models.Model):
     aluno_transporte = models.IntegerField('Informe o meio de transporte '
                                            'utilizado para chegar ao Campus?', choices=TRANSPORTE_CAMPUS)
 
-
-
     TEMPO_CAMPUS = (
         (1, "Aproximadamente 5 minutos"),
         (2, "Aproximadamente 10 minutos"),
@@ -74,23 +73,19 @@ class Aluno(models.Model):
     aluno_medicacao_cid = models.CharField('Informe o CID (Classificação '
                                            'Internacional de Doenças)', max_length=100,
                                            null=True, blank=True)
-
-
     IncPor = models.IntegerField('Incluido Por', null=True, blank=True)
     AltPor = models.IntegerField('Alterado Por', null=True, blank=True)
     IncEm = models.DateTimeField('Incluido Em', auto_now_add=True)
     AltEm = models.DateTimeField('Alterado Em', auto_now=True)
 
 
-
-
     def __str__(self):
         return str(self.aluno_matricula)
 
 
-
 class AlunoAnexo(Base):
     aluno = models.ForeignKey("Aluno", on_delete=models.CASCADE)
+    edital = models.ForeignKey(Edital, on_delete=models.CASCADE)
     TIPO_ANEXO = (
         (1, "Valor Gasto com Van"),
         (2, "Valor Gasto com Aluguel ou Financiamento do Imovel"),
