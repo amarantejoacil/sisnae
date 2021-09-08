@@ -3,6 +3,7 @@ from core.models import Base
 from aluno.models import Aluno
 from edital.models import Edital
 
+
 class Inscricao(Base):
     aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
     edital = models.ForeignKey(Edital, on_delete=models.CASCADE)

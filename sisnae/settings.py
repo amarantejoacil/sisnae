@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'curso',
     'edital',
     'inscricao',
+    'questionario',
     'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
