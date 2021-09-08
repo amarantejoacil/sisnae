@@ -13,7 +13,7 @@ class Aluno(models.Model):
     curso = models.ForeignKey(Curso, on_delete=models.RESTRICT)
     semestre = models.ForeignKey(Semestre, on_delete=models.RESTRICT)
     aluno_matricula = models.BigIntegerField('Matricula', unique=True)
-
+    """ 
     FORMA_INGRESSO_CHOICES = (
         ('A', "Por Ampla Concorrência"),
         ('C', "Por Meio de Cota"),
@@ -73,11 +73,13 @@ class Aluno(models.Model):
     aluno_medicacao_cid = models.CharField('Informe o CID (Classificação '
                                            'Internacional de Doenças)', max_length=100,
                                            null=True, blank=True)
+                                           
+                                           
+    """
     IncPor = models.IntegerField('Incluido Por', null=True, blank=True)
     AltPor = models.IntegerField('Alterado Por', null=True, blank=True)
     IncEm = models.DateTimeField('Incluido Em', auto_now_add=True)
     AltEm = models.DateTimeField('Alterado Em', auto_now=True)
-
 
     def __str__(self):
         return str(self.aluno_matricula)
