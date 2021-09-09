@@ -2,5 +2,5 @@ from django.urls import path
 
 from .views import AlunoView
 urlpatterns = [
-    path('', AlunoView.as_view(), name='AlunoView'),
+    path('primeiro_acesso', AlunoView.as_view(), name='AlunoView'),
 ]
