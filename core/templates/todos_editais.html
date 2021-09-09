@@ -23,61 +23,9 @@
         </p>
 
      <br>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        {% for e in editais %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="80"
-                 xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                 preserveAspectRatio="xMidYMid slice" focusable="false"><title>Edital: {{ e.numero }}/{{ e.ano }}</title>
-
-                 {% if e.edital_status == True %}
-                    <rect width="100%" height="100%" fill="#28A745"/>
-                {% endif %}
-                {% if e.edital_status == False %}
-                    <rect width="100%" height="100%" fill="#DC3545"/>
-                {% endif %}
-
-              <text x="50%" y="30%" fill="#eceeef" dy=".3em">Edital N°: {{ e.numero }}/{{ e.ano }}</text>
-              <text x="50%" y="70%" fill="#eceeef" dy=".3em">Modalidade: {{ e.modalidade_edital }}</text>
-            </svg>
 
 
-            <div class="card-body">
-              <p class="card-text">{{ e.edital_titulo }}</p>
-              <!--<p>N° Edital: {{ e.numero }}/{{ e.ano }}</p> -->
-              <!-- <p>Modalidade: {{ e.modalidade_edital }}</p> -->
-              <p><strong>Inscrições inicio:</strong></p>
-              <p>{{ e.data_hora_inicio }} </p>
-              <p> <strong>Inscrições fim: </strong></p>
-             <p>{{ e.data_hora_fim }}</p>
-                 <p> {{ e.semestre_edital }}° SEMESTRE - {{ e.ano }}</p>
-                {% if e.edital_status == True %}
-                     <p>Situação: Ativo </p>
-                {% endif %}
-                {% if e.edital_status == False %}
-                     <p>Situação: Encerrada </p>
-                {% endif %}
-
-
-
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn btn-outline-info">+ Informações</button>
-                  <button type="button" class="btn btn-sm btn-outline-success">Se inscrever</button>
-                </div>
-               <!-- <small class="text-muted">9 mins</small>-->
-              </div>
-            </div>
-
-          </div>
-           <br>
-        </div>
-
-         {% endfor %}
-        </div>
-      </div>
-
+        <H1>GRID</H1>
     </div>
 </main>
 
