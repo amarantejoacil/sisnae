@@ -6,31 +6,32 @@
 
     <div class="container">
       <h3 align="center">Inscrições abertas</h3>
-     <br>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         {% for e in editais %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="80"
-                 xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                 preserveAspectRatio="xMidYMid slice" focusable="false"><title>Edital: {{ e.numero }}/{{ e.ano }}</title>
+        {% if e.edital_status == True %}
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-              <rect width="100%" height="100%" fill="#28A745"/>
-              <text x="50%" y="30%" fill="#eceeef" dy=".3em">Edital N°: {{ e.numero }}/{{ e.ano }}</text>
-              <text x="50%" y="70%" fill="#eceeef" dy=".3em">Modalidade: {{ e.modalidade_edital }}</text>
-            </svg>
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="80"
+                         xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                         preserveAspectRatio="xMidYMid slice" focusable="false"><title>Edital: {{ e.numero }}/{{ e.ano }}</title>
+
+                      <rect width="100%" height="100%" fill="#28A745"/>
+                      <text x="50%" y="30%" fill="#eceeef" dy=".3em">Edital N°: {{ e.numero }}/{{ e.ano }}</text>
+                      <text x="50%" y="70%" fill="#eceeef" dy=".3em">Modalidade: {{ e.modalidade_edital }}</text>
+                    </svg>
 
 
-            <div class="card-body">
-              <p class="card-text">{{ e.edital_titulo }}</p>
-              <!--<p>N° Edital: {{ e.numero }}/{{ e.ano }}</p> -->
-              <!-- <p>Modalidade: {{ e.modalidade_edital }}</p> -->
-              <p><strong>Inscrições inicio:</strong></p>
-              <p>{{ e.data_hora_inicio }} </p>
-              <p> <strong>Inscrições fim: </strong></p>
-              <p>{{ e.data_hora_fim }}</p>
+                    <div class="card-body">
+                      <p class="card-text">{{ e.edital_titulo }}</p>
+                      <!--<p>N° Edital: {{ e.numero }}/{{ e.ano }}</p> -->
+                      <!-- <p>Modalidade: {{ e.modalidade_edital }}</p> -->
+                      <p><strong>Inscrições inicio:</strong></p>
+                      <p>{{ e.data_hora_inicio }} </p>
+                      <p> <strong>Inscrições fim: </strong></p>
+                      <p>{{ e.data_hora_fim }}</p>
 
-                <p> {{ e.semestre_edital }}° SEMESTRE - {{ e.ano }}</p>
+                        <p> {{ e.semestre_edital }}° SEMESTRE - {{ e.ano }}</p>
 
 
 
@@ -54,38 +55,39 @@
            <br>
         </div>
 
-         {% endfor %}
         </div>
       </div>
+       {% endif %}
+       {% endfor %}
 
       <!-- Inscrições Encerradas-->
 
       <div class="container">
       <h3 align="center">Inscrições encerradas</h3>
-     <br>
+        {% for i in editais %}
+        {% if i.edital_status == False %}
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        {% for e in editais %}
         <div class="col">
           <div class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="80"
                  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                 preserveAspectRatio="xMidYMid slice" focusable="false"><title>Edital: {{ e.numero }}/{{ e.ano }}</title>
+                 preserveAspectRatio="xMidYMid slice" focusable="false"><title>Edital: {{ i.numero }}/{{ i.ano }}</title>
 
               <rect width="100%" height="100%" fill="#DC3545"/>
-              <text x="50%" y="30%" fill="#eceeef" dy=".3em">Edital N°: {{ e.numero }}/{{ e.ano }}</text>
-              <text x="50%" y="70%" fill="#eceeef" dy=".3em">Modalidade: {{ e.modalidade_edital }}</text>
+              <text x="50%" y="30%" fill="#eceeef" dy=".3em">Edital N°: {{ i.numero }}/{{ i.ano }}</text>
+              <text x="50%" y="70%" fill="#eceeef" dy=".3em">Modalidade: {{ i.modalidade_edital }}</text>
             </svg>
 
 
             <div class="card-body">
-              <p class="card-text">{{ e.edital_descricao }}</p>
+              <p class="card-text">{{ i.edital_descricao }}</p>
               <!--<p>N° Edital: {{ e.numero }}/{{ e.ano }}</p> -->
               <!-- <p>Modalidade: {{ e.modalidade_edital }}</p> -->
               <p><strong>Inscrições inicio:</strong></p>
-              <p>{{ e.data_hora_inicio }} </p>
+              <p>{{ i.data_hora_inicio }} </p>
               <p> <strong>Inscrições fim: </strong></p>
-             <p>{{ e.data_hora_fim }}</p>
-                 <p> {{ e.semestre_edital }}° SEMESTRE - {{ e.ano }}</p>
+             <p>{{ i.data_hora_fim }}</p>
+                 <p> {{ i.semestre_edital }}° SEMESTRE - {{ i.ano }}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn btn-outline-info">+ Informações</button>
@@ -99,9 +101,10 @@
            <br>
         </div>
 
-         {% endfor %}
         </div>
       </div>
+      {% endif %}
+      {% endfor %}
 
 
 
