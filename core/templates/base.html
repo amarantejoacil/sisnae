@@ -1,11 +1,11 @@
 {% load bootstrap4 %}
-
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Joacil Amarante de Paula Junior">
+    <link rel="icon" href="/static/image/ifmt.ico">
     {% bootstrap_css %}
 
     <style>
@@ -26,7 +26,7 @@
   </head>
   <body>
 
-<header class="bg-light">
+  <header class="bg-light">
     <div class="container ">
     <nav class="navbar navbar-expand-lg navbar-light bg-light ">
     <a class="navbar-brand" href="{% url 'index' %}">SISNAE</a>
@@ -40,12 +40,12 @@
           <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="{% url 'painel_estudante' %}">Painel do Estudante</a>
+          <a class="nav-link " href="{% url 'painel_aluno' %}">Painel do Aluno</a>
         </li>
          <li class="nav-item">
           <a class="nav-link" href="{% url 'equipe' %}">Equipe</a>
         </li>
-        </li>
+
          <li class="nav-item">
           <a class="nav-link" href="{% url 'perguntas_frequente' %}">Perguntas frequentes</a>
         </li>
@@ -68,9 +68,9 @@
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
         -->
-        <!--
-      </ul>
 
+      </ul>
+      <!--
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Procurar editais" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Procurar</button>

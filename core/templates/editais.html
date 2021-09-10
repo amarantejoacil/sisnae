@@ -5,7 +5,7 @@
       <!-- Inscrições aberta-->
 
     <div class="container">
-      <h3 align="center">Inscrições abertas</h3>
+      <h3 align="center">Últimas Inscrições abertas</h3>
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 {% for e in editais %}
@@ -35,8 +35,7 @@
 
                 {% if e.edital_status == True %}
                      <p>Situação: Ativo </p>
-                {% endif %}
-                {% if e.edital_status == False %}
+                {% else %}
                      <p>Situação: Encerrada </p>
                 {% endif %}
 
@@ -55,15 +54,15 @@
         </div>
        {% endif %}
        {% endfor %}
-
         </div>
+
       </div>
 
 
       <!-- Inscrições Encerradas-->
 
       <div class="container">
-      <h3 align="center">Inscrições encerradas</h3>
+      <h3 align="center">Últimas Inscrições encerradas</h3>
 
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -103,10 +102,7 @@
         {% endif %}
        {% endfor %}
         </div>
-
       </div>
     </div>
-
-
 </main>
 

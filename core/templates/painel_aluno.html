@@ -27,8 +27,23 @@
         </p>
 </div>
 -->
+<div class="container" align="center">
+    <form class="form-signin" method="post" autocomplete="off">
+        {% csrf_token %}
+        <img align="center" class="mb-4" src="/static/image/ifmt.ico" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Informe seus dados</h1>
 
+        <label for="username" class="sr-only">E-mail</label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Informe seu e-mail" required autofocus>
+        <br>
+        <label for="password" class="sr-only">Senha</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Informe sua senha" required>
 
+        <br>
+        <button class="btn btn-primary btn-block" type="submit">Acessar</button>
+        <p class="mt-5 mb-3 text-muted">&copy; {% now 'Y'%}</p>
+    </form>
+</div>
 {% bootstrap_javascript jquery='full' %}
 </body>
 </html>

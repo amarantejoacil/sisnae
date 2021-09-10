@@ -1,6 +1,7 @@
 from django.db import models
 from stdimage.models import StdImageField
 from django.contrib.auth import get_user_model
+from validate_docbr import CPF
 
 
 class Base(models.Model):

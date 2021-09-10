@@ -19,14 +19,10 @@ class EquipeView(TemplateView):
     template_name = 'equipe.html'
 
 
-class PainelEstudanteView(TemplateView):
-    template_name = 'painel_estudante.html'
+class PainelAlunoView(TemplateView):
+    template_name = 'painel_aluno.html'
 
-"""
-class PrimeiroAcessoView(TemplateView):
-    template_name = 'primeiro_acesso.html'
 
-"""
 class TodosEditaisView(TemplateView):
     template_name = 'todos_editais.html'
 

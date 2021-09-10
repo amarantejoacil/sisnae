@@ -11,6 +11,17 @@
      {% bootstrap_javascript jquery='full' %}
 </head>
 <body>
-<h1>primerio acesso aluno</h1>
+
+
+
+<div class="container">
+    {% if user.is_anonymous %}
+        <h1>deslogado</h1>
+    {% else %}
+         <h1>logado</h1>
+    {% endif %}
+</div>
+
+
 </body>
 </html>
