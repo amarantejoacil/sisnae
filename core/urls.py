@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 
 from .views import IndexView, PerguntaFreqView, EquipeView, PainelAlunoView, TodosEditaisView
 
@@ -10,3 +10,5 @@ urlpatterns = [
     path('painel_aluno/', PainelAlunoView.as_view(), name='painel_aluno'),
     path('todos_editais/', TodosEditaisView.as_view(), name='todos_editais'),
 ]
+
+
