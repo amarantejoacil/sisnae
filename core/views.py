@@ -19,10 +19,6 @@ class EquipeView(TemplateView):
     template_name = 'equipe.html'
 
 
-class PainelAlunoView(TemplateView):
-    template_name = 'painel_aluno.html'
-
-
 class TodosEditaisView(TemplateView):
     template_name = 'todos_editais.html'
 
