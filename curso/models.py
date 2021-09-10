@@ -1,6 +1,7 @@
 from django.db import models
 from core.models import Base
 
+
 class Curso(Base):
     descricao = models.CharField('Descrição', max_length=100)
     semestre = models.ManyToManyField("Semestre")

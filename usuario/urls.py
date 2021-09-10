@@ -3,6 +3,7 @@ from core.views import IndexView
 
 from .views import PrimeiroAcessoAlunoView, PainelAlunoView
 from .views import UsuarioView, LogoutView
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
