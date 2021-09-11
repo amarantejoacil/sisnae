@@ -28,5 +28,9 @@ class TodosEditaisView(TemplateView):
         return context
 
 
+class DetalheEditaisView(TemplateView):
+    template_name = 'detalhe_editais.html'
+
+
 
 
