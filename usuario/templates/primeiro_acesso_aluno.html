@@ -15,18 +15,20 @@
 
 <div class="container">
     {% if user.is_anonymous %}
-        <h4>deslogado</h4>
+        <p>deslogado</p>
     {% else %}
-         <h4>logado</h4>
+         <p>logado</p>
     {% endif %}
 
     <div align="center">
+        <br>
+        <br>
         <br>
 <!--        <img src="/static/image/logo_1.png" alt="IFMT - Campus Várzea Grande" width="260" height="80">-->
         <a href="{% url 'index' %}"><img src="/static/image/logo_4.png" alt=""></a>
         <br><br>
         <h6>IFMT - Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso - Campus Várzea Grande.</h6>
-        <h6>SIS NAE - Núcleo de Assistência Estudantil</h6>
+        <h6>SISNAE - Sistema de Núcleo de Assistência Estudantil</h6>
         <br>
         <br>
     </div>
