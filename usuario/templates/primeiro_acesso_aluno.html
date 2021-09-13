@@ -15,12 +15,24 @@
 
 <div class="container">
     {% if user.is_anonymous %}
-        <h1>deslogado</h1>
+        <h4>deslogado</h4>
     {% else %}
-         <h1>logado</h1>
+         <h4>logado</h4>
     {% endif %}
+
+    <div align="center">
+        <br>
+        <img src="/static/image/logo_1.png" alt="IFMT - Campus Várzea Grande" width="260" height="80">
+        <br><br>
+        <h6>IFMT - Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso - Campus Várzea Grande.</h6>
+        <h6>SIS NAE - Núcleo de Assistência Estudantil</h6>
+        <br>
+        <br>
+    </div>
+
     <div class="contact-area section-padding-0-80">
         <div class="container">
+
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading">
@@ -53,7 +65,9 @@
 
                                 <div class="col-12 text-center">
                                     <br>
-                                    <button class="btn btn-success" type="submit">Criar sua conta</button>
+
+                                    <button type="button" class="btn btn-warning " onclick="index()">Voltar Página inicial</button>
+                                     <button class="btn btn-success" type="submit">Criar sua conta</button>
                                 </div>
                             </div>
                         </form>
@@ -63,6 +77,14 @@
         </div>
     </div>
 </div>
+
+<script>
+
+function index()
+{
+     location.href = "{% url 'index' %}";
+}
+</script>
 
 
 </body>

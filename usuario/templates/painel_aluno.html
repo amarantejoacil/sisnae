@@ -49,7 +49,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-heading">
-                    <h2>Login</h2>
+                    <br><br><br>
+                    <img src="/static/image/logo_1.png" alt="IFMT - Campus Várzea Grande" width="260" height="80">
+                    <br><br>
+                    <h6>IFMT - Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso - Campus Várzea Grande.</h6>
+                    <h6>SIS NAE - Núcleo de Assistência Estudantil</h6>
                 </div>
             </div>
         </div>
@@ -59,21 +63,23 @@
                     <form action="" method="">
                         {% csrf_token %}
                         <div class="row">
-                            <div class="col-12 col-lg-12">
-                            <label for="email"><b>Email</b></label>
+                            <div align="left" class="col-12 col-lg-12">
+                                <br>
+                            <label for="email">E-mail</label>
                                 <input type="text" id="email" class="form-control" name="email" placeholder="Entre com o email cadastrado">
-
                             </div>
-
-                                <div class="col-12 col-lg-12">
-                                <label for="senha"><b>Senha</b></label>
+                            <div align="left" class="col-12 col-lg-12">
+                                <br>
+                                <label for="senha">Senha</label>
                                 <input id="senha" type="password" class="form-control" name="senha" placeholder="Digite aqui sua senha">
                             </div>
 
                             <div class="col-12 text-center">
                                 <br>
+                                <button type="button" class="btn btn-warning " onclick="index()">Voltar Página inicial</button>
                                 <button class="btn btn-success" type="submit">Acessar sua conta</button>
-                                <button type="button" class="btn btn-danger" onclick="exibirCriarConta()">Ainda não tem conta? Clique aqui</button>
+                                <button type="button" class="btn btn-danger" onclick="exibirCriarConta()">Primeiro acesso</button>
+
                             </div>
 
                         </div>
@@ -90,6 +96,11 @@
 function exibirCriarConta()
 {
      location.href = "{% url 'primeiro_acesso_aluno' %}";
+}
+
+function index()
+{
+     location.href = "{% url 'index' %}";
 }
 </script>
 
