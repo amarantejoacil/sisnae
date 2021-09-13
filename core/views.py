@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from edital.models import Edital
 
 
@@ -19,8 +19,11 @@ class EquipeView(TemplateView):
     template_name = 'equipe.html'
 
 
-class TodosEditaisView(TemplateView):
+class TodosEditaisView(ListView):
     template_name = 'todos_editais.html'
+    model = Edital
+    paginate_by = 2
+    ordering = 'id'
 
     def get_context_data(self, **kwargs):
         context = super(TodosEditaisView, self).get_context_data(**kwargs)

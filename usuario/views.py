@@ -28,8 +28,8 @@ class PrimeiroAcessoAlunoView(FormView):
 
 
 
-class PainelAlunoView(TemplateView):
-    template_name = 'painel_aluno.html'
+class PainelLoginAlunoView(TemplateView):
+    template_name = 'painel_login_aluno.html'
 
 
 class LogoutView(TemplateView):
