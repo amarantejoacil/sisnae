@@ -27,7 +27,7 @@
         </p>
 </div>
 -->
-<div class="container" align="center">
+<div class="container " align="center">
     <!--
     <form class="form-signin" method="post" autocomplete="off">
         {% csrf_token %}
@@ -50,7 +50,8 @@
             <div class="col-12">
                 <div class="section-heading">
                     <br><br><br>
-                    <img src="/static/image/logo_1.png" alt="IFMT - Campus Várzea Grande" width="260" height="80">
+<!--                    <img src="/static/image/logo_1.png" alt="IFMT - Campus Várzea Grande" width="260" height="80">-->
+                    <a href="{% url 'index' %}"><img src="/static/image/logo_4.png" alt=""></a>
                     <br><br>
                     <h6>IFMT - Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso - Campus Várzea Grande.</h6>
                     <h6>SIS NAE - Núcleo de Assistência Estudantil</h6>
@@ -77,8 +78,8 @@
                             <div class="col-12 text-center">
                                 <br>
                                 <button type="button" class="btn btn-warning " onclick="index()">Voltar Página inicial</button>
-                                <button class="btn btn-success" type="submit">Acessar sua conta</button>
                                 <button type="button" class="btn btn-danger" onclick="exibirCriarConta()">Primeiro acesso</button>
+                                <button class="btn btn-success" type="submit">Acessar sua conta</button>
 
                             </div>
 
