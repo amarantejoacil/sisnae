@@ -22,14 +22,16 @@ class EquipeView(TemplateView):
 class TodosEditaisView(ListView):
     template_name = 'todos_editais.html'
     model = Edital
-    paginate_by = 2
+    paginate_by = 3
     ordering = 'id'
 
-    def get_context_data(self, **kwargs):
-        context = super(TodosEditaisView, self).get_context_data(**kwargs)
-        context['editais'] = Edital.objects.all()
 
-        return context
+    # usando page_obj
+    # def get_context_data(self, **kwargs):
+    #     context = super(TodosEditaisView, self).get_context_data(**kwargs)
+    #     context['editais'] = Edital.objects.all()
+    #
+    #     return context
 
 
 class DetalheEditaisView(TemplateView):
