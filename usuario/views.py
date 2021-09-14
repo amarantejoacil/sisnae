@@ -5,26 +5,22 @@ from django.views.generic import TemplateView, FormView
 
 from .forms import UsuarioForm
 from django.urls import reverse_lazy
+from django.contrib.auth.models import User
+from django.views.generic.edit import CreateView
+from .forms import UsuarioForm
 
 
 class UsuarioView(TemplateView):
     template_name = 'usuario.html'
 
 
-class PrimeiroAcessoAlunoView(FormView):
+class PrimeiroAcessoAlunoView(CreateView):
     template_name = 'primeiro_acesso_aluno.html'
     form_class = UsuarioForm
-    #success_url = '/acesso/painel_aluno'
+    # fields = ['username', 'email', 'password']
+    # success_url = '/acesso/painel_aluno'
     success_url = reverse_lazy('painel_aluno')
 
-    """ 
-    def valida_dados(request):
-        if request.method == 'POST':
-            matricula = request.POST['matricula']
-            print(matricula)
-        else:
-            print(aa)
-    """
 
 
 
