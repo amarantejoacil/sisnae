@@ -6,9 +6,9 @@ class AdminAluno(admin.ModelAdmin):
     list_display = ('get_nome', 'aluno_matricula', 'get_cpf', 'aluno_status', 'curso',)#, 'IncEm', 'AltEm', 'IncPor', 'AltPor')
     list_display_links = ('get_nome', 'aluno_matricula')
     search_fields = ('aluno_matricula',)
-    list_filter = ('aluno_matricula',)
+    # list_filter = ('aluno_matricula',)
     #list_editable = ('pessoa_status',)
-    list_per_page = 15
+    list_per_page = 10
 
     readonly_fields = ('IncPor', 'AltPor', 'IncEm', 'AltEm')
 

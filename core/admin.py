@@ -10,7 +10,7 @@ class AdminPessoa(admin.ModelAdmin):
     search_fields = ('nome', 'cpf')
     list_filter = ('cidade', 'pessoa_status')
     #list_editable = ('pessoa_status', )
-    list_per_page = 15
+    list_per_page = 10
     readonly_fields = ('IncPor', 'AltPor', 'IncEm', 'AltEm')
 
 @admin.register(Cidade)
@@ -18,6 +18,7 @@ class AdminCidade(admin.ModelAdmin):
     list_display = ('id', 'descricao', 'cidade_status', 'IncEm', 'AltEm', 'IncPor', 'AltPor', )
     list_display_links = ('id', 'descricao',)
     readonly_fields = ('IncPor', 'AltPor', 'IncEm', 'AltEm')
+    list_per_page = 10
 
 
 @admin.register(Banco)
@@ -25,6 +26,7 @@ class AdminBanco(admin.ModelAdmin):
     list_display = ('id', 'descricao', 'banco_status', 'IncEm', 'AltEm', 'IncPor', 'AltPor', )
     list_display_links = ('id', 'descricao',)
     readonly_fields = ('IncPor', 'AltPor', 'IncEm', 'AltEm')
+    list_per_page = 10
 
 
 

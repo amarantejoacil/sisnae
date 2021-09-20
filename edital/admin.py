@@ -7,12 +7,14 @@ class EditalAdmin(admin.ModelAdmin):
                     'data_hora_fim', 'setor', 'semestre_edital')
     list_display_links = ('id', 'edital_titulo',)
     readonly_fields = ('IncPor', 'AltPor', 'IncEm', 'AltEm')
+    list_per_page = 10
 
 @admin.register(PublicacaoEdital)
 class PublicacaoEditalAdmin(admin.ModelAdmin):
     list_display = ('id', 'publicacao_descricao', 'publicacao_anexo_arq', 'publicacao_data')
     list_display_links = ('id', 'publicacao_descricao',)
     readonly_fields = ('IncPor', 'AltPor', 'IncEm', 'AltEm')
+    list_per_page = 10
 
 
 @admin.register(ModalidadeEdital)
@@ -20,6 +22,7 @@ class ModalidadeEditalAdmin(admin.ModelAdmin):
     list_display = ('id', 'modalidade_desc', 'modalidade_status')
     list_display_links = ('id', 'modalidade_desc',)
     readonly_fields = ('IncPor', 'AltPor', 'IncEm', 'AltEm')
+    list_per_page = 10
 
 
 @admin.register(SetorEdital)
