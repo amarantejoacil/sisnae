@@ -24,7 +24,8 @@ class Edital(Base):
         verbose_name_plural = 'Editais'
 
     def __str__(self):
-        return self.edital_titulo
+        return str(self.edital_titulo) + ' (n° ' + str(self.numero) + '/' \
+               + str(self.ano) + ') Semestre: ' + str(self.semestre_edital) + '° Semestre'
 
 
 class PublicacaoEdital(Base):

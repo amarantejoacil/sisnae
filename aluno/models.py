@@ -24,6 +24,6 @@ class Aluno(models.Model):
     AltEm = models.DateTimeField('Alterado Em', auto_now=True)
 
     def __str__(self):
-        return "Nome: {} - Matrícula: {}".format(self.pessoa.nome, self.aluno_matricula)
+        return "{} - Matrícula: {}".format(self.pessoa.nome, self.aluno_matricula)
         # return str(self.aluno_matricula)
 
