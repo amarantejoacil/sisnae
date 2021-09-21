@@ -1,26 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
-   <!-- Topo Start  -->
+
     {% include 'topo.html' %}
-
-   <!-- Topo End -->
-
-    <!-- Topo Start  -->
-
+<form method="GET">
 <div class="bg-light">
     <div class="container bg-light" >
         <br>
         <h2 align="center"> Informações do Edital</h2>
             <br>
-            <h6><strong>Edital:</strong> N° 75/2021 - 1° Semestre</h6>
-            <h6><strong>Descrição:</strong> Assistência Estudantil oferecerá mais de 100 bolsas para Auxílios Transporte e Alimentação</h6>
-            <h6><strong>Modalidade:</strong> Esporte</h6>
-            <h6><strong>Inscrições inicio:</strong> 10/10/2021 08:00:00</h6>
-            <h6><strong>Inscrições Fim:</strong> 10/11/2021 23:59:59</h6>
-            <h6><strong>Situação:</strong> Encerrado</h6>
-            <a class="btn btn-sm btn btn-outline-success" href="">Inscrições Abertas</a>
-            <a class="btn btn-sm btn btn-outline-danger" href="">Inscrições Encerradas</a>
-        <br>
+            {% for e in context_detalhe_editais %}
+
+            <h6><strong>Edital:</strong> N° {{ e.numero}}/{{ e.ano }}  - {{ e.semestre }}° Semestre</h6>
+            <h6><strong>Descrição:</strong> {{ e.edital_titulo }}</h6>
+            <h6><strong>Modalidade:</strong> {{ e.modalidade_edital }}</h6>
+            <h6><strong>Inscrições inicio:</strong> {{ e.data_hora_inicio }}</h6>
+            <h6><strong>Inscrições Fim:</strong> {{ e.data_hora_fim }}</h6>
+            {% if e.edital_status == True %}
+              <h6><strong>Situação:</strong> Encerrado</h6>
+            {% else %}
+              <h6><strong>Situação:</strong> Encerrado</h6>
+            {% endif %}
+<!--            <a class="btn btn-sm btn btn-outline-success" href="">Inscrições Abertas</a>-->
+<!--            <a class="btn btn-sm btn btn-outline-danger" href="">Inscrições Encerradas</a>-->
+            <br>
+
+            {% endfor %}
         <h2 align="center"> Publicações</h2>
         <br>
         <table class="table bg-light">
@@ -89,7 +93,7 @@
         </div>
     </div>
 </div>
-
+</form>
    <!-- Topo End -->
 
 {% endblock %}

@@ -26,22 +26,12 @@ class TodosEditaisView(ListView):
     ordering = 'id'
 
 
-    # usando page_obj
-    # def get_context_data(self, **kwargs):
-    #     context = super(TodosEditaisView, self).get_context_data(**kwargs)
-    #     context['editais'] = Edital.objects.all()
-    #
-    #     return context
-
-
-class DetalheEditaisView(TemplateView):
+class DetalheEditaisView(ListView):
+    models = Edital
     template_name = 'detalhe_editais.html'
+    queryset = Edital.objects.filter(id=1)
+    context_object_name = 'context_detalhe_editais'
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(TodosEditaisView, self).get_context_data(**kwargs)
-    #     context['detalhe_editais'] = Edital.objects.all()
-    #
-    #     return context
 
 
 

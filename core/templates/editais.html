@@ -42,7 +42,7 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
 <!--              <button type="button" class="btn btn-sm btn btn-outline-info">+ Informações</button>-->
-                  <a class="btn btn-sm btn btn-outline-info" href="{% url 'detalhe_editais' %}">+ Informações</a>
+                  <a class="btn btn-sm btn btn-outline-info" href="{% url 'detalhe_editais' e.id %}">+ Informações</a>
 
 
                     <button type="button" class="btn btn-sm btn-outline-success">Se inscrever</button>
@@ -93,7 +93,7 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
 <!--                  <button type="button" class="btn btn-sm btn btn-outline-info">+ Informações</button>-->
-                   <a class="btn btn-sm btn btn-outline-info" href="{% url 'detalhe_editais' %}">+ Informações</a>
+                   <a class="btn btn-sm btn btn-outline-info" href="{% url 'detalhe_editais' i.id %}">+ Informações</a>
                     <!-- <button type="button" class="btn btn-sm btn-outline-success">Se inscrever</button>-->
                 </div>
                <!-- <small class="text-muted">9 mins</small>-->
