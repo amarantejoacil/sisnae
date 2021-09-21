@@ -33,16 +33,35 @@ class DetalheEditaisView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['detalhe_editais'] = Edital.objects.all()
+        print('context-----------------------')
+        print(context)
         return context
 
-class DetalhePublicacoesEditaisView(DetailView):
+class DetalhePublicacoesEditaisView(ListView):
+    # modelo 2 listview
     model = PublicacaoEdital
+    paginate_by = 20
     template_name = 'detalhe_editais.html'
+    queryset = PublicacaoEdital.objects.all()
+    print('queryset-----------------------')
+    print(queryset)
+    context_object_name = 'publicacao_editais'
+    print(context_object_name)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['publicacao_detalhe_editais'] = PublicacaoEdital.objects.all()
-        return context
+
+    #modelo 1
+    # model = PublicacaoEdital
+    # paginate_by = 20 #usando no listview
+    #
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['publicacao'] = PublicacaoEdital.objects.all()
+    #     print(context)
+    #     return context
+
+
+
+
 
 
 
