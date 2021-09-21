@@ -20,8 +20,8 @@ class EquipeView(TemplateView):
 
 
 class TodosEditaisView(ListView):
-    template_name = 'todos_editais.html'
     model = Edital
+    template_name = 'todos_editais.html'
     paginate_by = 3
     ordering = 'id'
 
@@ -29,8 +29,9 @@ class TodosEditaisView(ListView):
 class DetalheEditaisView(ListView):
     models = Edital
     template_name = 'detalhe_editais.html'
-    queryset = Edital.objects.filter(id=1)
-    context_object_name = 'context_detalhe_editais'
+    queryset = Edital.objects.all()
+    # queryset = Edital.objects.filter(id=1)
+    context_object_name = 'detalhe_editais'
 
 
 

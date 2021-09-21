@@ -8,9 +8,3 @@ class EditalView(TemplateView):
     template_name = 'edital.html'
 
 
-# class EditalList(ListView):
-#     models = Edital
-#     template_name = 'detalhe_editais'
-#     queryset = Edital.objects.all()
-#     context_object_name = 'context_detalhe_editais'
-
