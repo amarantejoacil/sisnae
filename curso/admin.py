@@ -8,6 +8,8 @@ class CursoAluno(admin.ModelAdmin):
     list_display_links = ('id', 'descricao',)
     readonly_fields = ('IncPor', 'AltPor', 'IncEm', 'AltEm')
     list_per_page = 10
+    filter_horizontal = ['semestre',]
+    # filter_vertical = ['semestre',]
 
 
 
