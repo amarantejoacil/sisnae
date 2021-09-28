@@ -17,6 +17,8 @@ class Edital(Base):
     edital_status = models.BooleanField('Edital ativo?', default=True)
     modalidade_edital = models.ForeignKey("ModalidadeEdital", on_delete=models.RESTRICT)
     setor = models.ForeignKey("SetorEdital", on_delete=models.RESTRICT)
+    edital_quantidade_vaga = models.IntegerField('Quantidade de vaga')
+    edital_valor_auxilio = models.DecimalField('Valor do auxílio', max_digits=8, decimal_places=2)
 
 
     class Meta:

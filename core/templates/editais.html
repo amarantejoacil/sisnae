@@ -22,22 +22,27 @@
                     </svg>
 
                     <div class="card-body">
-                      <p class="card-text">{{ e.edital_titulo }}</p>
-                      <!--<p>N° Edital: {{ e.numero }}/{{ e.ano }}</p> -->
-                      <!-- <p>Modalidade: {{ e.modalidade_edital }}</p> -->
-                      <p><strong>Inscrições inicio:</strong></p>
-                      <p>{{ e.data_hora_inicio }} </p>
-                      <p> <strong>Inscrições fim: </strong></p>
-                      <p>{{ e.data_hora_fim }}</p>
+                        <p class="card-text">{{ e.edital_titulo }}</p>
+                        <!--<p>N° Edital: {{ e.numero }}/{{ e.ano }}</p> -->
+                        <!-- <p>Modalidade: {{ e.modalidade_edital }}</p> -->
+
                         <p> {{ e.semestre_edital }}° SEMESTRE - {{ e.ano }}</p>
+                        <p>Quantidade de vaga: {{ e.edital_quantidade_vaga }}</p>
+                        <p>Valor do auxílio: R$ {{ e.edital_valor_auxilio }}</p>
+                        <p><strong>Inscrições inicio:</strong></p>
+                        <p>{{ e.data_hora_inicio }} </p>
+                        <p> <strong>Inscrições fim: </strong></p>
+                        <p>{{ e.data_hora_fim }}</p>
 
 
 
-                {% if e.edital_status == True %}
-                     <p>Situação: Ativo </p>
-                {% else %}
-                     <p>Situação: Encerrada </p>
-                {% endif %}
+<!--                {% if e.edital_status == True %}-->
+<!--                     <p>Situação: Ativo </p>-->
+<!--                {% else %}-->
+<!--                     <p>Situação: Encerrada </p>-->
+<!--                {% endif %}-->
+
+
 
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
@@ -85,11 +90,14 @@
               <p class="card-text">{{ i.edital_descricao }}</p>
               <!--<p>N° Edital: {{ e.numero }}/{{ e.ano }}</p> -->
               <!-- <p>Modalidade: {{ e.modalidade_edital }}</p> -->
-              <p><strong>Inscrições inicio:</strong></p>
-              <p>{{ i.data_hora_inicio }} </p>
-              <p> <strong>Inscrições fim: </strong></p>
-             <p>{{ i.data_hora_fim }}</p>
-                 <p> {{ i.semestre_edital }}° SEMESTRE - {{ i.ano }}</p>
+
+                <p> {{ i.semestre_edital }}° SEMESTRE - {{ i.ano }}</p>
+                <p>Quantidade de vaga: {{ i.edital_quantidade_vaga }}</p>
+                <p>Valor do auxílio: R$ {{ i.edital_valor_auxilio }}</p>
+                <p><strong>Inscrições inicio:</strong></p>
+                <p>{{ i.data_hora_inicio }} </p>
+                <p> <strong>Inscrições fim: </strong></p>
+                <p>{{ i.data_hora_fim }}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
 <!--                  <button type="button" class="btn btn-sm btn btn-outline-info">+ Informações</button>-->
