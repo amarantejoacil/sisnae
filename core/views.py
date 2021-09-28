@@ -22,8 +22,8 @@ class EquipeView(TemplateView):
 class TodosEditaisView(ListView):
     model = Edital
     template_name = 'todos_editais.html'
-    paginate_by = 3
-    ordering = 'id'
+    paginate_by = 10
+    ordering = '-id'
 
 
 class DetalheEditaisView(DetailView):

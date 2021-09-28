@@ -7,12 +7,12 @@
     <div class="container">
       <h3 align="center">Últimas Inscrições abertas</h3>
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
                 {% for e in editais %}
-                {% if e.edital_status == True %}
+                {% if e.edital_status == True%}
                 <div class="col">
                   <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="80"
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="60"
                          xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
                          preserveAspectRatio="xMidYMid slice" focusable="false"><title>Edital: {{ e.numero }}/{{ e.ano }}</title>
 
@@ -72,12 +72,12 @@
       <h3 align="center">Últimas Inscrições encerradas</h3>
 
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
         {% for i in editais %}
         {% if i.edital_status == False %}
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="80"
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="60"
                  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
                  preserveAspectRatio="xMidYMid slice" focusable="false"><title>Edital: {{ i.numero }}/{{ i.ano }}</title>
 
