@@ -18,13 +18,13 @@
                     <h6><strong>Modalidade:</strong> {{ e.modalidade_edital }}</h6>
                     <h6><strong>Inscrições inicio:</strong> {{ e.data_hora_inicio }}</h6>
                     <h6><strong>Inscrições Fim:</strong> {{ e.data_hora_fim }}</h6>
-                    <h6><strong>Quantidade de </strong> {{ e.edital_quantidade_vaga }}</h6>
+                    <h6><strong>Quantidade de vaga: </strong> {{ e.edital_quantidade_vaga }}</h6>
                     <h6><strong>Valor do auxílio:</strong> R$ {{ e.edital_valor_auxilio }}</h6>
-                    {% if e.edital_status == True %}
-                      <h6><strong>Situação:</strong> Encerrado</h6>
-                    {% else %}
-                      <h6><strong>Situação:</strong> Encerrado</h6>
-                    {% endif %}
+<!--                    {% if e.edital_status == True %}-->
+<!--                      <h6><strong>Situação:</strong> Encerrado</h6>-->
+<!--                    {% else %}-->
+<!--                      <h6><strong>Situação:</strong> Encerrado</h6>-->
+<!--                    {% endif %}-->
                  <br>
 
 <!--                {% for p in publicacao %}-->
@@ -57,7 +57,7 @@
 
 
           {{ object.id }}
-           {% for p in publicacao_editais %}
+           {% for p in detalhe_publicacoes %}
           <h1>a</h1>
             {% if p.id == object.id %}
             <tr>
