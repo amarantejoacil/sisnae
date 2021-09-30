@@ -1,6 +1,6 @@
 # sisnae
 Sistema de para gestão de assistência estudantil IFMT - Várzea Grande
-<brM
+<br>
 Técnologias utilizdas: python, django, boostrap4 ✔
 <br>
 #Principais funcionalidades 💻
