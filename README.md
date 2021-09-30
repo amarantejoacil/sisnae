@@ -1,5 +1,18 @@
 # sisnae
-sistema de para gestão de assistência estudantil IFMT - Várzea Grande
+Sistema de para gestão de assistência estudantil IFMT - Várzea Grande
+<br>
+#Principais funcionalidades 💻
+<br>
+-Gerenciar de Edital ✔
+<br>
+-Gerenciar de Publicações ✔
+<br>
+-Gerenciar de Aluno ✔
+<br>
+-Aplicar Questionário Socioeconômico ✔
+<br>
+-Gerenciar Inscrições ✔
+
 
 
 # Progressao
