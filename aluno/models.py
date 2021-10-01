@@ -10,9 +10,9 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 
 class Aluno(models.Model):
     aluno_status = models.BooleanField('Aluno ativo? ', default=True)
-    pessoa = models.ForeignKey(Pessoa, on_delete=models.CASCADE, null=True)
-    curso = models.ForeignKey(Curso, on_delete=models.RESTRICT)
-    semestre = models.ForeignKey(Semestre, on_delete=models.RESTRICT)
+    pessoa = models.ForeignKey(Pessoa, on_delete=models.PROTECT, null=True)
+    curso = models.ForeignKey(Curso, on_delete=models.PROTECT)
+    semestre = models.ForeignKey(Semestre, on_delete=models.PROTECT)
     aluno_matricula = models.BigIntegerField('Matricula', unique=True)
 
     #IncPor = models.ForeignKey(User, on_delete=models.PROTECT, related_name="IncPor_usuario", null=True, blank=True)

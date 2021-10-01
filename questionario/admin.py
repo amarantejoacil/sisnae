@@ -4,8 +4,8 @@ from .models import Questionario, QuestionarioAnexo
 
 @admin.register(Questionario)
 class QuestionarioAdmin(admin.ModelAdmin):
-    list_display = ('id', 'aluno_id', 'edital_id',)
-    list_display_links = ('id', 'aluno_id',)
+    list_display = ('id', 'questionario_ano', 'questionario_semestre', )
+    list_display_links = ('id', )
     readonly_fields = ('IncPor', 'AltPor', 'IncEm', 'AltEm')
     list_per_page = 10
 

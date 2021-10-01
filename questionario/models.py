@@ -5,8 +5,14 @@ from edital.models import Edital
 
 
 class Questionario(Base):
-    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
-    edital = models.ForeignKey(Edital, on_delete=models.CASCADE)
+    questionario_ano = models.IntegerField('Ano do questionário:')
+
+    SEMESTRE_CHOICES = (
+        (1, "1° Semestre"),
+        (2, "2° Semestre"),
+    )
+    questionario_semestre = models.IntegerField('Semestre', choices=SEMESTRE_CHOICES)
+
     QUEST_FORMA_INGRESSO = (
         ('A', "Por Ampla Concorrência"),
         ('C', "Por Meio de Cota"),
@@ -68,7 +74,7 @@ class Questionario(Base):
                                            null=True, blank=True)
 
     def __str__(self):
-        return str(self.aluno)
+        return 'Questionário: ' + str(self.questionario_ano) + '/'+ str(self.questionario_semestre)
 
     class Meta:
         verbose_name = 'Questionário'
@@ -76,7 +82,7 @@ class Questionario(Base):
 
 
 class QuestionarioAnexo(Base):
-    questionario = models.ForeignKey("Questionario", on_delete=models.CASCADE)
+    questionario = models.ForeignKey("Questionario", on_delete=models.PROTECT)
     TIPO_ANEXO = (
         (1, "Valor Gasto com Van"),
         (2, "Valor Gasto com Aluguel ou Financiamento do Imovel"),
