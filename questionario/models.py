@@ -96,7 +96,7 @@ class QuestionarioAnexo(Base):
     quest_aluno_anexo_arq = models.CharField('Anexo/Comprovante', max_length=100)
 
     def __str__(self):
-        return str(self.questionario_id)
+        return str(self.questionario_id) + str(self.quest_aluno_anexo_tipo) + ' ' + str(self.quest_aluno_anexo_valor)
 
 
 
