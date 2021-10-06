@@ -1,5 +1,6 @@
 from django.db import models
 from stdimage.models import StdImageField
+from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from validate_docbr import CPF
 
@@ -16,13 +17,15 @@ class Base(models.Model):
 
 class Pessoa(Base):
     nome = models.CharField('Nome', max_length=150)
+    usuario = models.OneToOneField(User, on_delete=models.PROTECT)
+
     SEXO_CHOICES = (
         ('F', "Feminino"),
         ('M', "Masculino"),
         ('P', "Prefiro não informar"),
     )
     genero = models.CharField('Sexo', choices=SEXO_CHOICES, max_length=1)
-    cpf = models.CharField('CPF', max_length=11)
+    cpf = models.CharField('CPF', max_length=15)
     rg = models.CharField('RG', max_length=15)
     data_nascimento = models.DateField('Data de nascimento', null=True)
     foto = StdImageField('Image', upload_to='media/media_pessoa', variations={'thumb': {'width': 200, 'height': 200, 'crop': True}},
