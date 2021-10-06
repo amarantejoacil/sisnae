@@ -17,7 +17,7 @@ class Base(models.Model):
 
 class Pessoa(Base):
     nome = models.CharField('Nome', max_length=150)
-    usuario = models.OneToOneField(User, on_delete=models.PROTECT)
+    # usuario = models.OneToOneField(User, on_delete=models.PROTECT)
 
     SEXO_CHOICES = (
         ('F', "Feminino"),

@@ -25,18 +25,4 @@ class Inscricao(Base):
         verbose_name = 'Inscrição'
         verbose_name_plural = 'Inscrições'
 
-"""
-class Situacao(Base):
-    descricao = models.CharField('Descrição', max_length=150)
-    #situacao_status = models.BooleanField('Ativo?', default=True)
-
-    def __str__(self):
-        return self.descricao
-
-    class Meta:
-        verbose_name = 'Situação'
-        verbose_name_plural = 'Situações'
-"""
-
-
 
