@@ -10,18 +10,11 @@ from django.views.generic.edit import CreateView
 from .forms import UsuarioForm
 
 
-class UsuarioView(TemplateView):
-    template_name = 'usuario.html'
-
 
 class PrimeiroAcessoAlunoView(CreateView):
     template_name = 'primeiro_acesso_aluno.html'
     form_class = UsuarioForm
-    # fields = ['username', 'email', 'password']
-    # success_url = '/acesso/painel_aluno'
     success_url = reverse_lazy('painel_aluno')
-
-
 
 
 class PainelLoginAlunoView(TemplateView):
