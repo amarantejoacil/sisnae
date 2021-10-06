@@ -25,7 +25,7 @@ class Pessoa(Base):
     cpf = models.CharField('CPF', max_length=11)
     rg = models.CharField('RG', max_length=15)
     data_nascimento = models.DateField('Data de nascimento', null=True)
-    foto = StdImageField('Image', upload_to='pessoa', variations={'thumb': {'width': 200, 'height': 200, 'crop': True}},
+    foto = StdImageField('Image', upload_to='media/media_pessoa', variations={'thumb': {'width': 200, 'height': 200, 'crop': True}},
                          null=True, blank=True)
     email = models.EmailField('E-mail', max_length=200)
     cep = models.CharField('CEP', max_length=15)

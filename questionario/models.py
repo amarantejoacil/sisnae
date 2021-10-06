@@ -93,7 +93,7 @@ class QuestionarioAnexo(Base):
     )
     quest_aluno_anexo_tipo = models.IntegerField('Inclua os anexos das suas despesas', choices=TIPO_ANEXO)
     quest_aluno_anexo_valor = models.DecimalField('Informe o valor do anexo', max_digits=8, decimal_places=2)
-    quest_aluno_anexo_arq = models.CharField('Anexo/Comprovante', max_length=100)
+    quest_aluno_anexo_arq = models.FileField('Anexo/Comprovante', upload_to='media/questionario')
 
     def __str__(self):
         return str(self.questionario_id) + str(self.quest_aluno_anexo_tipo) + ' ' + str(self.quest_aluno_anexo_valor)
