@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="bg-light">
+    <div class="container">
+        <br>
+        <h3>Cadastro de Formulário</h3>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="formGroupExampleInput">Descrição</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Descrição">
+            </div>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Escolher arquivo</label>
+            </div>
+            <br><br>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+
+    </div>
+</div>
+{% endblock %}
+
+
