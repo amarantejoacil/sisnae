@@ -1,18 +1,7 @@
-{% load bootstrap4 %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Joacil Amarante de Paula Junior">
-    {% bootstrap_css %}
-
-    <title>Primeiro Acesso Aluno</title>
-     {% bootstrap_javascript jquery='full' %}
-</head>
-<body>
-
-
+{% extends 'base.html' %}
+{% block menu %}
+{% endblock %}
+{% block content %}
 <div class="container">
     {% if user.is_anonymous %}
         <p>deslogado</p>
@@ -39,7 +28,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading">
-                        <h2>Criar conta</h2>
+                        <h3>Criar conta</h3>
+                        <hr>
                     </div>
                 </div>
             </div>
@@ -48,9 +38,6 @@
                     <div class="contact-form-area">
                         <form action="{% url 'primeiro_acesso_aluno' %}" method="POST">
                              {% csrf_token %}
-
-
-
                             <div class="row">
                                 <div class="col-12 col-lg-12">
                                     <label for="matricula"><b>Matricula</b></label>
@@ -69,7 +56,9 @@
                                 <div class="col-12 text-center">
                                     <br>
 
-                                    <button type="button" class="btn btn-warning " onclick="index()">Voltar Página inicial</button>
+                                     <button type="button" class="btn btn-warning ">
+                                        <a href="{% url 'index' %}">Voltar Página inicial</a>
+                                     </button>
                                      <button class="btn btn-success" type="submit">Criar sua conta</button>
                                 </div>
                             </div>
@@ -80,15 +69,4 @@
         </div>
     </div>
 </div>
-
-<script>
-
-function index()
-{
-     location.href = "{% url 'index' %}";
-}
-</script>
-
-
-</body>
-</html>
+{% endblock %}

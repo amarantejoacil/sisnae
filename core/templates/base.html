@@ -28,6 +28,7 @@
 
   <header class="bg-light">
     <div class="container ">
+    {% block menu %}
     <nav class="navbar navbar-expand-lg navbar-light bg-light ">
       <a class="navbar-brand"  href="{% url 'index' %}"><img src="/static/image/logo_5.png" alt=""
                                                              width="30" height="30"></a>
@@ -57,31 +58,14 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{% url 'todos_editais' %}"> Listar - Todos os Editais</a>
-
-            <!--
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-            -->
           </div>
         </li>
-
-        <!--
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-        -->
-
       </ul>
-      <!--
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Procurar editais" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Procurar</button>
-      </form>
-      -->
     </div>
   </nav>
   </div>
     {% bootstrap_javascript jquery='full' %}
+    {% endblock menu %}
 </header>
 
 {% block content %}
