@@ -27,6 +27,7 @@ urlpatterns = [
     path('edital/', include('edital.urls')),
     path('inscricao/', include('inscricao.urls')),
     path('acesso/', include('usuario.urls')),
+    path('importacao/', include('importacao.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.AdminSite.site_header = 'SISNAE - VGD'

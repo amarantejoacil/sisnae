@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'inscricao',
     'questionario',
     'usuario',
+    'importacao',
     'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
