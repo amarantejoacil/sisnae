@@ -15,5 +15,12 @@ class Importacao(Base):
     )
     situacao = models.IntegerField('Tipo do Curso', choices=STATUS_ANEXO, default=2)
 
+    SEMESTRE_CHOICES = (
+        (1, "1° Semestre"),
+        (2, "2° Semestre"),
+    )
+    semestre = models.IntegerField('Semestre', choices=SEMESTRE_CHOICES)
+    ano = models.IntegerField('Ano:')
+
     def __str__(self):
         return self.descricao

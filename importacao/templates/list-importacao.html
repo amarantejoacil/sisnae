@@ -12,10 +12,12 @@
         <table class="table table-striped">
             <tr>
                 <th>#</th>
-                <th>Nome</th>
                 <th>Descrição</th>
                 <th>Arquivo</th>
                 <th>Status</th>
+                <th>Semestre</th>
+                <th>Ano</th>
+                <th>Usuário</th>
                 <th>Opções</th>
             </tr>
 
@@ -25,7 +27,6 @@
                     <td>{{ i.pk }}</td>
                     <td>{{ i.descricao }}</td>
                     <td><a href="{{ i.arquivo.url }}">Ver arquivo anexado</a></td>
-                    <td>{{ i.usuario }}</td>
 
                     {% if i.situacao == 1 %}
                         <td>Arquivo Processado com sucesso</td>
@@ -38,6 +39,10 @@
                     {% if i.situacao == 3 %}
                         <td>Erro ao realizar processamentos, verifique o padrão do arquivo!</td>
                     {% endif %}
+
+                    <td>{{ i.semestre }}</td>
+                    <td>{{ i.ano }}</td>
+                    <td>{{ i.usuario }}</td>
 
                     <td>
                         <a href="#" class="btn btn-warning btn-sm" title="Editar">Importar</a>                    </td>
