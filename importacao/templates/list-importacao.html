@@ -1,12 +1,84 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>list importacao</h1>
+{% extends 'base.html' %}
+{% block menu %}
+{% endblock %}
+{% block content %}
+<div class="container">
+    <br><br>
+<h3>Listas de Importações</h3>
+    <a href="{% url 'CreateDadosImportacaoView' %}" class="btn btn-primary btn-sm">Adicionar Anexo</a>
+    <hr>
 
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Arquivo</th>
+                <th>Status</th>
+                <th>Opções</th>
+            </tr>
 
-</body>
-</html>
+            {% for i in object_list %}
+                <tr>
+
+                    <td>{{ i.pk }}</td>
+                    <td>{{ i.descricao }}</td>
+                    <td><a href="{{ i.arquivo.url }}">Ver arquivo anexado</a></td>
+                    <td>{{ i.usuario }}</td>
+
+                    {% if i.situacao == 1 %}
+                        <td>Arquivo Processado com sucesso</td>
+                    {% endif %}
+
+                    {% if i.situacao == 2 %}
+                         <td>Arquivo não Processado</td>
+                    {% endif %}
+
+                    {% if i.situacao == 3 %}
+                        <td>Erro ao realizar processamentos, verifique o padrão do arquivo!</td>
+                    {% endif %}
+
+                    <td>
+                        <a href="#" class="btn btn-warning btn-sm" title="Editar">Importar</a>                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">Nenhum anexo registrado</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+        <ul class="pagination justify-content-center">
+
+            {% if page_obj.has_previous %}
+
+                {% if request.GET.nome %}
+                <li class="page-item"><a class="page-link" href="?page=1&nome={{request.GET.nome}}">&laquo; Primeira</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}&nome={{request.GET.nome}}">Anterior</a></li>
+                {% else %}
+                <li class="page-item"><a class="page-link" href="?page=1">&laquo; Primeira</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a></li>
+                {% endif %}
+
+            {% endif %}
+
+            <li class="page-item">
+                <span class="page-link">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.</span>
+            </li>
+
+            {% if page_obj.has_next %}
+                {% if request.GET.nome %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}&nome={{request.GET.nome}}">Próxima</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}&nome={{request.GET.nome}}">Última &raquo;</a></li>
+                {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Próxima</a></li>
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Última &raquo;</a></li>
+                {% endif %}
+            {% endif %}
+
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
