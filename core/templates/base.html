@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Joacil Amarante de Paula Junior">
     <link rel="icon" href="/static/image/ifmt.ico">
+
+    {% block titulo %}
+        <title>Modelo</title>
+    {% endblock %}
+
     {% bootstrap_css %}
 
     <style>
@@ -73,10 +78,147 @@
     {% endblock menu %}
 </header>
 
-{% block content %}
-
+{% block topo %}
+  <main class="bg-success">
+  <br>
+  <section class="py-22 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <a href="{% url 'index' %}"><img src="/static/image/logo_3.png" alt=""></a>
+<!--        <h2 class="fw-light text-white">Núcleo de Assistência Estudantil  IFMT Campus Várzea Grande</h2>-->
+        <h4 class="fw-light text-white">IFMT - Campus Várzea Grande</h4>
+        <p class="lead text-white">Desenvolvemos políticas e ações voltadas para a assistência do estudante com o intuito de favorecer sua permanência e êxito no processo de ensino e aprendizagem.</p>
+        <p>
+          <a href="{% url 'painel_login_aluno' %}" class="btn btn-primary my-2">Painel do Aluno</a>
+          <a href="{% url 'primeiro_acesso_aluno' %}" class="btn bg-danger text-white my-2">Primeiro Acesso</a>
+          <!--<a href="#" class="btn btn-secondary my-2">Secondary action</a>-->
+        </p>
+      </div>
+    </div>
+  </section>
+  </main>
 {% endblock %}
 
+{% block conteudo %}
+  <div class="album py-2 bg-light">
+      <!-- Inscrições aberta-->
+
+    <div class="container">
+      <h3 align="center">Últimas Inscrições abertas</h3>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+                {% for e in editais %}
+                {% if e.edital_status == True%}
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="40"
+                         xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                         preserveAspectRatio="xMidYMid slice" focusable="false"><title>Edital: {{ e.numero }}/{{ e.ano }}</title>
+
+                      <rect width="100%" height="100%" fill="#28A745"/>
+                      <text x="50%" y="50%" fill="#eceeef" dy=".3em">Edital N°: {{ e.numero }}/{{ e.ano }}</text>
+<!--                      <text x="50%" y="70%" fill="#eceeef" dy=".3em">Modalidade: {{ e.modalidade_edital }}</text>-->
+                    </svg>
+
+                    <div class="card-body">
+                        <p class="card-text">{{ e.edital_titulo }}</p>
+                        <p>Modalidade: {{ e.modalidade_edital }}</p>
+                        <!--<p>N° Edital: {{ e.numero }}/{{ e.ano }}</p> -->
+                        <!-- <p>Modalidade: {{ e.modalidade_edital }}</p> -->
+                        <p>Quantidade de vaga: {{ e.edital_quantidade_vaga }}</p>
+                        <p>Valor do auxílio: R$ {{ e.edital_valor_auxilio }}</p>
+                         <p> {{ e.semestre_edital }}° SEMESTRE - {{ e.ano }}</p>
+                        <p><strong>Inscrições inicio:</strong></p>
+                        <p>{{ e.data_hora_inicio }} </p>
+                        <p> <strong>Inscrições fim: </strong></p>
+                        <p>{{ e.data_hora_fim }}</p>
+
+
+
+<!--                {% if e.edital_status == True %}-->
+<!--                     <p>Situação: Ativo </p>-->
+<!--                {% else %}-->
+<!--                     <p>Situação: Encerrada </p>-->
+<!--                {% endif %}-->
+
+
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+<!--              <button type="button" class="btn btn-sm btn btn-outline-info">+ Informações</button>-->
+                  <a class="btn btn-sm btn btn-outline-info" href="{% url 'detalhe_editais' e.pk %}">+ Informações</a>
+
+
+                    <button type="button" class="btn btn-sm btn-outline-success">Se inscrever</button>
+                </div>
+               <!-- <small class="text-muted">9 mins</small>-->
+              </div>
+            </div>
+          </div>
+           <br>
+
+        </div>
+       {% endif %}
+       {% endfor %}
+        </div>
+
+      </div>
+
+
+      <!-- Inscrições Encerradas-->
+
+      <div class="container">
+      <h3 align="center">Últimas Inscrições encerradas</h3>
+
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+        {% for i in editais %}
+        {% if i.edital_status == False %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="40"
+                 xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                 preserveAspectRatio="xMidYMid slice" focusable="false"><title>Edital: {{ i.numero }}/{{ i.ano }}</title>
+
+              <rect width="100%" height="100%" fill="#DC3545"/>
+              <text x="50%" y="50%" fill="#eceeef" dy=".3em">Edital N°: {{ i.numero }}/{{ i.ano }}</text>
+<!--              <text x="50%" y="70%" fill="#eceeef" dy=".3em">Modalidade: {{ i.modalidade_edital }}</text>-->
+            </svg>
+
+            <div class="card-body">
+              <p class="card-text">{{ i.edital_descricao }}</p>
+                <p>Modalidade: {{ i.modalidade_edital }}</p>
+              <!--<p>N° Edital: {{ e.numero }}/{{ e.ano }}</p> -->
+              <!-- <p>Modalidade: {{ e.modalidade_edital }}</p> -->
+                <p>Quantidade de vaga: {{ i.edital_quantidade_vaga }}</p>
+                <p>Valor do auxílio: R$ {{ i.edital_valor_auxilio }}</p>
+                 <p> {{ i.semestre_edital }}° SEMESTRE - {{ i.ano }}</p>
+                <p><strong>Inscrições inicio:</strong></p>
+                <p>{{ i.data_hora_inicio }} </p>
+                <p> <strong>Inscrições fim: </strong></p>
+                <p>{{ i.data_hora_fim }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+<!--                  <button type="button" class="btn btn-sm btn btn-outline-info">+ Informações</button>-->
+                   <a class="btn btn-sm btn btn-outline-info" href="{% url 'detalhe_editais' i.pk %}">+ Informações</a>
+                    <!-- <button type="button" class="btn btn-sm btn-outline-success">Se inscrever</button>-->
+                </div>
+               <!-- <small class="text-muted">9 mins</small>-->
+              </div>
+            </div>
+          </div>
+           <br>
+        </div>
+        {% endif %}
+       {% endfor %}
+        </div>
+      </div>
+    </div>
+</main>
+{% endblock %}
+
+
+{% block rodape %}
 <footer class="text-center py-5 bg-light">
   <div class="container ">
     <p class="float-end mb-1">
@@ -86,6 +228,7 @@
     <p class="mb-0">Desenvolvido por: <a  href="http://lattes.cnpq.br/2923700707849440" target="_blank">Joacil Amarante de Paula Junior</a></p>
   </div>
 </footer>
+{% endblock %}
 
  </body>
 
