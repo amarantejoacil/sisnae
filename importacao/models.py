@@ -7,6 +7,7 @@ class Importacao(Base):
     descricao = models.CharField('Descrição', max_length=100)
     arquivo = models.FileField(upload_to='xlsx')
     usuario = models.ForeignKey(User, on_delete=models.PROTECT)
+    resultado = models.FileField(upload_to='xlsx_resultado', null=True, blank=True)
 
     STATUS_ANEXO = (
         (1, "Arquivo Processado com sucesso"),

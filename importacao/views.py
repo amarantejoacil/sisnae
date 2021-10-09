@@ -1,6 +1,7 @@
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 from .models import Importacao
 from django.urls import reverse_lazy
+import pandas as pd
 
 
 class ImportacaoView(TemplateView):
@@ -35,9 +36,11 @@ class ListDadosImportacaoView(ListView):
     ordering = '-id'
 
 
-class ProcessarDadosImportadosView(TemplateView):
+class ProcessarDadosImportadosView(DetailView):
     model = Importacao
     login_url = reverse_lazy('ListDadosImportacaoView')
+
+
 
 
 

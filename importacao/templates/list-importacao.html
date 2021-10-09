@@ -18,6 +18,7 @@
                 <th>Semestre</th>
                 <th>Ano</th>
                 <th>Usuário</th>
+                <th>Resultado Processamentos</th>
                 <th>Opções</th>
             </tr>
 
@@ -43,9 +44,23 @@
                     <td>{{ i.semestre }}</td>
                     <td>{{ i.ano }}</td>
                     <td>{{ i.usuario }}</td>
+                    {% if i.resultado %}
+                        <td class="text-success"><a href="{{ i.resultado.url }}">Resultado do Arquivo Processado</a></td>
+                    {% else %}
+                        <td class="text-danger">-</td>
+                    {% endif %}
 
+
+                    {% if i.situacao == 1 %}
                     <td>
-                        <a href="#" class="btn btn-warning btn-sm" title="Editar">Importar</a>                    </td>
+                        <a href="#" class="btn btn-success btn-sm" title="Editar">Arquivo Processo com Sucesso!</a>
+                    </td>
+                    {% else %}
+                    <td>
+                        <a href="{% url 'ProcessarDadosImportadosView' i.pk %}" class="btn btn-danger btn-sm" title="Editar">Processar Arquivo XLSX</a>
+                    </td>
+                    {% endif %}
+
                 </tr>
             {% empty %}
                 <tr>
