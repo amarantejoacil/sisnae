@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
+{% block menu %}
+{% endblock %}
 
+{% block topo %}
+{% endblock %}
 
 {% load crispy_forms_tags %}
 
@@ -8,27 +12,25 @@
 {% endblock %}
 
 
-
 {% block conteudo %}
-
-    <h3>{{ titulo }}</h3>
-  
-
-    <form action="" method="POST">
+<div class="container">
+<br>
+<h3>{{ titulo }}</h3>
+    <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
         {{ form|crispy }}
 
-        <button type="submit" class="btn btn-primary">{{ botao }}
 
+
+        <button type="submit" class="btn btn-primary">{{ botao }}
             <!-- força interpreta o texto que vem no icone como html-->
             {% autoescape off %}
                 {{ icone }}
             {% endautoescape %}
-
-
         </button>
     </form>
+</div>
    
 
 {% endblock %}

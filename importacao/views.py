@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from .models import Importacao
 from django.urls import reverse_lazy
 import pandas as pd
@@ -8,11 +8,21 @@ class ImportacaoView(TemplateView):
     template_name = 'importacao.html'
 
 
-class CreateDadosImportacaoView(ListView):
+class CreateDadosImportacaoView(CreateView):
     model = Importacao
-    fields = ['id', 'descricao', 'arquivo', ]
-    template_name = 'form-upload.html'
+    fields = ['id', 'descricao', 'arquivo', 'semestre', 'ano' ]
+    template_name = '../templates/cadastros/form-upload.html'
     success_url = reverse_lazy('ListDadosImportacaoView')
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = 'Cadastro de Importação'
+        context['botao'] = 'Cadastrar'
+        context['botao-voltar'] = 'ListDadosImportacaoView'
+        # enviando um html para view...
+        # anotação no formhtml autoscape força intepretar o html
+        context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
+        return context
 
     def form_valid(self, form):
         # obs1. antes do super o objeto com dados não foi criado
