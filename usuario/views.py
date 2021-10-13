@@ -20,6 +20,9 @@ class PrimeiroAcessoAlunoView(CreateView):
 class PainelLoginAlunoView(TemplateView):
     template_name = 'painel_login_aluno.html'
 
+class PainelAdminAluno(TemplateView):
+    template_name = 'painel_admin_aluno.html'
+
 
 class LogoutView(TemplateView):
     template_name = 'index.html'

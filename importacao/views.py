@@ -46,17 +46,13 @@ class ListDadosImportacaoView(ListView):
     ordering = '-id'
 
 
-class ProcessarDadosImportadosView(DetailView):
+class ProcessarDadosImportadosView(ListView):
+    print('processou')
+    template_name = 'alunos_importados.html'
     model = Importacao
-    login_url = reverse_lazy('ListDadosImportacaoView')
+    #login_url = reverse_lazy('ListDadosImportacaoView')
 
 
-
-
-
-    # def get_queryset(self):
-        # self.object_lista = Importacao.objects.all()
-        # return self.object_lista
 
 
 

@@ -1,7 +1,7 @@
 from django.urls import path, include
 
 
-from .views import PrimeiroAcessoAlunoView, PainelLoginAlunoView
+from .views import PrimeiroAcessoAlunoView, PainelLoginAlunoView, PainelAdminAluno
 from .views import LogoutView
 from django.contrib.auth import views as auth_views
 
@@ -13,6 +13,8 @@ urlpatterns = [
     path('painel_login_aluno/', auth_views.LoginView.as_view(
         template_name='painel_login_aluno.html'
     ), name='painel_login_aluno'),
+
+    path('painel_admin_aluno/', PainelAdminAluno.as_view(), name='PainelAdminAluno' ),
 
     path('logout/', LogoutView.as_view(), name="logout")
 ]
