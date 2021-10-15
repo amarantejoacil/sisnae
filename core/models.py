@@ -5,6 +5,7 @@ from django.contrib.auth import get_user_model
 from validate_docbr import CPF
 
 
+
 class Base(models.Model):
     IncPor = models.IntegerField('Incluido Por', null=True, blank=True)
     AltPor = models.IntegerField('Alterado Por', null=True, blank=True)
