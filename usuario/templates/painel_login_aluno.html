@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block menu %}
 {% endblock %}
 
@@ -6,11 +7,15 @@
 {% endblock %}
 
 {% block titulo %}
+
+{% block rodape %}
+{% endblock %}
+
 <title>Painel do Aluno</title>
 {% endblock %}
 
 {% block conteudo %}
-<div class="container " align="center">
+<div class="container" align="center">
 
     <div class="contact-area section-padding-0-80">
         <div class="row">
@@ -25,38 +30,31 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="contact-form-area">
-                    <form action="" method="">
-                        {% csrf_token %}
-                        <div class="row">
-
-                            <div class="container">
-                                <div align="left" class="col-8 col-lg-8">
-                                    <br>
-                                <label for="email">E-mail</label>
-                                    <input type="text" id="email" class="form-control" name="email" placeholder="Entre com o email cadastrado">
-                                </div>
-                                <div align="left" class="col-8 col-lg-8">
-                                    <br>
-                                    <label for="senha">Senha</label>
-                                    <input id="senha" type="password" class="form-control" name="senha" placeholder="Digite aqui sua senha">
-                                </div>
-                            </div>
-
-                            <div class="col-12 text-center">
-                                <br>
-                             <a class="btn btn-warning" href="{% url 'index' %}">Voltar Página inicial</a>
-                                <button class="btn btn-success" type="submit">Acessar sua conta</button>
-
-                            </div>
-
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
+
+{% if request.user.is_authenticated %}
+    <div align="center">
+        <br><br><br><br>
+        <h3>Você já está logado na plataforma!</h3>
+    <!--    <p class="lead">Você não tem permissão de acesso a esta funcionalidade!</p>-->
+    </div>
+{% else %}
+    <div class="container">
+        <div class="col-md-6 mx-auto">
+            <br><br><br>
+            <h5>Autenticação de usuário!</h5>
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                {{ form|crispy }}
+                <p align="center">
+                    <a href="{% url 'index' %}" class="btn btn-danger">Voltar</a>
+                    <button type="submit" class="btn btn-success">Entrar</button>
+                </p>
+            </form>
+        </div>
+    </div>
+{% endif %}
+
 {% endblock %}

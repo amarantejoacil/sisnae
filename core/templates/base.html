@@ -47,9 +47,9 @@
         <li class="nav-item active">
           <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link " href="{% url 'painel_login_aluno' %}">Painel do Aluno</a>
-        </li>
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link " href="{% url 'painel_login_aluno' %}">Painel do Aluno</a>-->
+<!--        </li>-->
          <li class="nav-item">
           <a class="nav-link" href="{% url 'equipe' %}">Equipe</a>
         </li>
@@ -57,19 +57,34 @@
          <li class="nav-item">
           <a class="nav-link" href="{% url 'perguntas_frequente' %}">Perguntas frequentes</a>
         </li>
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="{% url 'ListDadosImportacaoView' %}">Importações</a>-->
+<!--        </li>-->
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'ListDadosImportacaoView' %}">Importações</a>
+        <a class="nav-link" href="{% url 'todos_editais' %}">Editais</a>
         </li>
 
+        {% if request.user.is_authenticated %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ request.user }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Meus dados</a>
+                    <a class="dropdown-item" href="#">Alterar Senha</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}">Sair</a>
+                </div>
+            </li>
+        {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'registrar_aluno' %}">Primerio Acesso</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'painel_login_aluno' %}">Entrar</a>
+            </li>
+        {% endif %}
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Editais
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{% url 'todos_editais' %}"> Listar - Todos os Editais</a>
-          </div>
-        </li>
+
       </ul>
     </div>
   </nav>
@@ -89,8 +104,8 @@
         <h4 class="fw-light text-white">IFMT - Campus Várzea Grande</h4>
         <p class="lead text-white">Desenvolvemos políticas e ações voltadas para a assistência do estudante com o intuito de favorecer sua permanência e êxito no processo de ensino e aprendizagem.</p>
         <p>
-          <a href="{% url 'painel_login_aluno' %}" class="btn btn-primary my-2">Painel do Aluno</a>
-          <a href="{% url 'primeiro_acesso_aluno' %}" class="btn bg-danger text-white my-2">Primeiro Acesso</a>
+<!--          <a href="{% url 'painel_login_aluno' %}" class="btn btn-primary my-2">Painel do Aluno</a>-->
+<!--          <a href="{% url 'registrar_aluno' %}" class="btn bg-danger text-white my-2">Primeiro Acesso</a>-->
           <!--<a href="#" class="btn btn-secondary my-2">Secondary action</a>-->
         </p>
       </div>
