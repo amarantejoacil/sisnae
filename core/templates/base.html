@@ -1,4 +1,5 @@
 {% load bootstrap4 %}
+{% load bootstrap_icons %}
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -6,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Joacil Amarante de Paula Junior">
     <link rel="icon" href="/static/image/ifmt.ico">
+
 
     {% block titulo %}
         <title>Página inicial</title>
@@ -144,9 +146,9 @@
                         <p>Valor do auxílio: R$ {{ e.edital_valor_auxilio }}</p>
                          <p> {{ e.semestre_edital }}° SEMESTRE - {{ e.ano }}</p>
                         <p><strong>Inscrições inicio:</strong></p>
-                        <p>{{ e.data_hora_inicio }} </p>
+                        <p>{{ e.edital_datetime_ini }} </p>
                         <p> <strong>Inscrições fim: </strong></p>
-                        <p>{{ e.data_hora_fim }}</p>
+                        <p>{{ e.edital_datetime_fim }}</p>
 
 
 
@@ -209,9 +211,9 @@
                 <p>Valor do auxílio: R$ {{ i.edital_valor_auxilio }}</p>
                  <p> {{ i.semestre_edital }}° SEMESTRE - {{ i.ano }}</p>
                 <p><strong>Inscrições inicio:</strong></p>
-                <p>{{ i.data_hora_inicio }} </p>
+                <p>{{ i.edital_datetime_ini }} </p>
                 <p> <strong>Inscrições fim: </strong></p>
-                <p>{{ i.data_hora_fim }}</p>
+                <p>{{ i.edital_datetime_fim }}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
 <!--                  <button type="button" class="btn btn-sm btn btn-outline-info">+ Informações</button>-->

@@ -40,8 +40,8 @@
           <th scope="row">{{ e.id }}</th>
           <td>{{ e.edital_titulo }}</td>
           <td>{{ e.numero }}/{{ e.ano }}</td>
-          <td>{{ e.data_hora_inicio }}</td>
-          <td>{{ e.data_hora_fim }}</td>
+          <td>{{ e.edital_datetime_ini }}</td>
+          <td>{{ e.edital_datetime_fim }}</td>
           <td>{{ e.modalidade_edital }}</td>
           <td>{{ e.setor }}</td>
           {% if e.edital_status == True %}

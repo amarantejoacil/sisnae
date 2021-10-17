@@ -12,13 +12,16 @@ class Edital(Base):
     )
     semestre_edital = models.IntegerField('Semestre', choices=SEMESTRE)
     ano = models.PositiveIntegerField('Ano')
-    data_hora_inicio = models.DateTimeField('Validade Inicio:', null=True)
-    data_hora_fim = models.DateTimeField('Validade Fim:', null=True)
+    edital_datetime_ini = models.DateTimeField('Edital Aberto em Inicio:',null=True, blank=True)
+    edital_datetime_fim = models.DateTimeField('Edital Fechado em:', null=True, blank=True)
+    edital_datetime_correcao_ini = models.DateTimeField('Data Inicio para correção', null=True, blank=True)
+    edital_datetime_correcao_fim = models.DateTimeField('Data Final para correção', null=True, blank=True)
     edital_status = models.BooleanField('Edital ativo?', default=True)
     modalidade_edital = models.ForeignKey("ModalidadeEdital", on_delete=models.RESTRICT)
     setor = models.ForeignKey("SetorEdital", on_delete=models.RESTRICT)
     edital_quantidade_vaga = models.IntegerField('Quantidade de vaga')
     edital_valor_auxilio = models.DecimalField('Valor do auxílio', max_digits=8, decimal_places=2)
+
 
 
     class Meta:

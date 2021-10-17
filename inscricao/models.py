@@ -17,6 +17,8 @@ class Inscricao(Base):
     )
     situacao_obs = models.CharField('Observação da inscrição', max_length=200, null=True, blank=True)
     inscricao_situacao = models.IntegerField(choices=SITUACAO_INSCRICAO, default=1)
+    # inscricao_dta_ini_correcao = models.DateTimeField('Data para correção', null=True, blank=True)
+    # inscricao_dta_fim_correcao = models.DateTimeField('Data para correção', null=True, blank=True)
 
     def __str__(self):
         return str(self.aluno)
