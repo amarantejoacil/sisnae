@@ -20,6 +20,10 @@ from .forms import UsuarioForm
 class PainelLoginAlunoView(TemplateView):
     template_name = 'painel_login_aluno.html'
 
+
+class PainelAlunoView(TemplateView):
+    template_name = 'painel_aluno.html'
+
 #
 # class LogoutView(TemplateView):
 #     template_name = 'index.html'

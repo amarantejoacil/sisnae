@@ -18,16 +18,14 @@
     {% endif %}
 
     <div align="center">
-        <br>
-        <br>
-        <br>
+
     <!--        <img src="/static/image/logo_1.png" alt="IFMT - Campus Várzea Grande" width="260" height="80">-->
-        <a href="{% url 'index' %}"><img src="/static/image/logo_4.png" alt=""></a>
+        <a href="{% url 'index' %}"><img src="/static/image/logo_4.png" width="200" height="40" alt=""></a>
+        <br>
+        <font size="2">IFMT - Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso - Campus Várzea Grande</font>
+        <br>
+        <font size="2">SISNAE - Sistema de Núcleo de Assistência Estudanti</font>
         <br><br>
-        <h6>IFMT - Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso - Campus Várzea Grande.</h6>
-        <h6>SISNAE - Sistema de Núcleo de Assistência Estudantil</h6>
-        <br>
-        <br>
     </div>
 
     <div class="col-md-7 mx-auto">
@@ -35,7 +33,7 @@
 
             {% csrf_token %}
             {{ form|crispy }}
-            <br>
+
             <div class="text-center">
                 <a class="btn btn-warning" href="{% url 'index' %}">Voltar Página inicial</a>
                  <button class="btn btn-success" type="submit">Criar sua conta</button>

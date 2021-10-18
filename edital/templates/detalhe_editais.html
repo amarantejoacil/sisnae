@@ -27,31 +27,12 @@
                     <h5><mark>{% bs_icon 'pencil-square' size='1.3em' %} Período para correções dos dados após a inscrição:</mark></h5>
                     <h6><strong>Período de Correção:</strong> {{ e.edital_datetime_correcao_ini }}</h6>
                     <h6><strong>Fim das Inscrições:</strong> {{ e.edital_datetime_correcao_fim }}</h6>
-
-<!--                    {% if e.edital_status == True %}-->
-<!--                      <h6><strong>Situação:</strong> Encerrado</h6>-->
-<!--                    {% else %}-->
-<!--                      <h6><strong>Situação:</strong> Encerrado</h6>-->
-<!--                    {% endif %}-->
                  <br>
-
-<!--                {% for p in publicacao %}-->
-<!--                    <h1>ok</h1>-->
-<!--                    {{ p.id }}-->
-
-
-<!--                {% endfor %}-->
-
-
                 {% endif %}
-
             {% endfor %}
 
 <!--        Publicações -->
-
-
-
-        <h2 align="center">{% bs_icon 'file-earmark-pdf' size='0.8em' %} Publicações</h2>
+<h4 align="center"><mark>{% bs_icon 'file-earmark-pdf' size='0.8em' %} Publicações</mark></h4>
         <br>
         <table class="table table-striped">
           <thead>
@@ -64,7 +45,6 @@
 
           </thead>
           <tbody>
-
 
 <!--          {{ object.id }}-->
 <!--          {{ publicacao }}-->
@@ -86,17 +66,10 @@
           </tbody>
         </table>
         <br>
-        <div align="center">
-        <a href="{% url 'index' %}" class="btn bg-danger text-white my-2">Voltar</a>
-        </div>
+<!--        <div align="center">-->
+<!--        <a href="{% url 'index' %}" class="btn bg-danger text-white my-2">Voltar</a>-->
+<!--        </div>-->
     </div>
 </div>
 </form>
-   <!-- Topo End -->
-
 {% endblock %}
-
-
-
-
-

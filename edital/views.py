@@ -15,6 +15,15 @@ class TodosEditaisView(ListView):
     ordering = '-id'
 
 
+class EditaisAbertoView(TemplateView):
+    template_name = 'editais_abertos.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(EditaisAbertoView, self).get_context_data(**kwargs)
+        context['editais'] = Edital.objects.all()
+        return context
+
+
 class DetalheEditaisView(DetailView):
     model = Edital
     template_name = 'detalhe_editais.html'

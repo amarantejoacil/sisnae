@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load bootstrap_icons %}
+
+
+{% block topo %}
+{% endblock %}
+
+{% block titulo %}
+{% endblock %}
+
+{% block rodape %}
+{% endblock %}
+
+{% block conteudo %}
+
+{% if user.is_anonymous %}
+    <div class="container" align="center">
+        <br><br>
+        <p><mark>Para realizar acesso a esta página, você precisa estar logado na plataforma!</mark> </p>
+        <a class="btn btn-primary" href="{% url 'painel_login_aluno' %}">Clique aqui para realizar seu acesso na plataforma!</a>
+    </div>
+{% else %}
+    <div class="container" align="center">
+        <br>
+        <h6>Bem vindo ao Painel do aluno</h6>
+        <br>
+        <div class="card-deck">
+          <div class="card">
+              <br>
+             <p align="center"> {% bs_icon 'person' size='2.8em' %}</p>
+            <div class="card-body">
+              <h5 class="card-title">Meus dados</h5>
+            </div>
+          </div>
+          <div class="card">
+              <br>
+             <a href="{% url 'editais_aberto' %}"  align="center"> {% bs_icon 'file-earmark-pdf' size='2.8em' %}</a>
+            <div class="card-body">
+              <h5 class="card-title">Editais abertos</h5>
+            </div>
+          </div>
+         <div class="card">
+              <br>
+             <p align="center"> {% bs_icon 'card-text' size='2.8em' %}</p>
+            <div class="card-body">
+              <h5 class="card-title">Histórico de inscrições</h5>
+            </div>
+          </div>
+            <div class="card">
+              <br>
+             <p align="center"> {% bs_icon 'key' size='2.8em' %}</p>
+            <div class="card-body">
+              <h5 class="card-title">Alterar minha senha</h5>
+            </div>
+          </div>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock  %}

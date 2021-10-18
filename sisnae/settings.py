@@ -149,6 +149,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'painel_aluno'
 LOGOUT_REDIRECT_URL = 'index'
 LOGIN_URL = 'usuario'

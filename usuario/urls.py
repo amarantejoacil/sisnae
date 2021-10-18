@@ -1,7 +1,7 @@
 from django.urls import path, include
 
 
-from .views import UsuarioCreate
+from .views import UsuarioCreate, PainelAlunoView
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -13,6 +13,8 @@ urlpatterns = [
     path('painel_login_aluno/', auth_views.LoginView.as_view(
         template_name='painel_login_aluno.html'
     ), name='painel_login_aluno'),
+
+    path('painel_aluno/', PainelAlunoView.as_view(), name='painel_aluno'),
 
     path('logout/', auth_views.LogoutView.as_view(), name="logout")
 ]

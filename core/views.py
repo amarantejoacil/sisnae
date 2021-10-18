@@ -8,9 +8,8 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
-        context['editais'] = Edital.objects.all()
+        context['editais'] = Edital.objects.filter(edital_status=True).order_by('-id')[:12]
         return context
-
 
 class PerguntaFreqView(TemplateView):
     template_name = 'perguntas_frequente.html'
