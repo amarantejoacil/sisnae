@@ -11,9 +11,10 @@ class Inscricao(Base):
     edital = models.ForeignKey(Edital, on_delete=models.PROTECT)
     SITUACAO_INSCRICAO = (
         (1, 'Inscrição realizada'),
-        (2, 'Realizar correção'),
-        (3, 'Inscrição deferida'),
-        (4, 'Inscrição indeferida'),
+        (2, 'Realizar Correção'),
+        (3, 'Inscrição Deferida'),
+        (4, 'Inscrição Indeferida'),
+        (5, 'Inscrição Cancelada'),
     )
     situacao_obs = models.CharField('Observação da inscrição', max_length=200, null=True, blank=True)
     inscricao_situacao = models.IntegerField(choices=SITUACAO_INSCRICAO, default=1)
