@@ -39,6 +39,7 @@
     <div align="center">
         <br><br><br><br>
         <h3>Você já está logado na plataforma!</h3>
+         <a class="btn btn-danger" href="{% url 'index' %}">Voltar Página inicial</a>
     <!--    <p class="lead">Você não tem permissão de acesso a esta funcionalidade!</p>-->
     </div>
 {% else %}
@@ -48,8 +49,8 @@
             <h5 align="center">Autenticação de usuário!</h5>
             <form action="" method="POST">
                 {% csrf_token %}
-
                 {{ form|crispy }}
+
                 <p align="center">
                     <a href="{% url 'index' %}" class="btn btn-danger">Voltar</a>
                     <button type="submit" class="btn btn-success">Entrar</button>

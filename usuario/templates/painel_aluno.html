@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load bootstrap_icons %}
+
 
 
 {% block topo %}
@@ -27,54 +27,32 @@
         <div class="card-deck">
           <div class="card">
               <br>
-             <a href="{% url 'editais_aberto' %}" align="center"> {% bs_icon 'person' size='2.8em' %}</a>
+             <a href="{% url 'editais_aberto' %}" align="center">IMG1</a>
             <div class="card-body">
               <a href="{% url 'editais_aberto' %}" class="card-title"><h6>Meus dados</h6></a>
             </div>
           </div>
           <div class="card">
               <br>
-             <a href="{% url 'editais_aberto' %}"  align="center"> {% bs_icon 'file-earmark-pdf' size='2.8em' %}</a>
+             <a href="{% url 'editais_aberto' %}"  align="center"> IMG2</a>
             <div class="card-body">
               <a href="{% url 'editais_aberto' %}" class="card-title"><h6>Editais abertos</h6></a>
             </div>
           </div>
          <div class="card">
               <br>
-             <a href="{% url 'editais_aberto' %}"   align="center"" align="center"> {% bs_icon 'card-text' size='2.8em' %}</a>
+             <a href="{% url 'editais_aberto' %}"   align="center"" align="center"> IMG3</a>
             <div class="card-body">
               <a href="{% url 'editais_aberto' %}" class="card-title"><h6>Histórico de inscrições</h6></a>
             </div>
           </div>
           <div class="card"><br>
-                <a href="{% url 'editais_aberto' %}" align="center"> {% bs_icon 'key' size='2.8em' %}</a>
+                <a href="{% url 'editais_aberto' %}" align="center"> IMG4</a>
                 <div class="card-body">
                   <a href="{% url 'editais_aberto' %}"  class="card-title"><h6>Alterar minha senha</h6></a>
                 </div>
             </div>
         </div>
-<!--        SEGUNDA LINHA DE MENU SE EXISTIR | 3 CARD POR LINHA -->
-<!--        <br>-->
-<!--        <div class="card-deck">-->
-<!--            <div class="card"><br>-->
-<!--                <a href="{% url 'editais_aberto' %}" align="center"> {% bs_icon 'key' size='2.8em' %}</a>-->
-<!--                <div class="card-body">-->
-<!--                  <a href="{% url 'editais_aberto' %}"  class="card-title"><h5>Alterar minha senha</h5></a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="card"><br>-->
-<!--                <a href="{% url 'editais_aberto' %}" align="center"> {% bs_icon 'key' size='2.8em' %}</a>-->
-<!--                <div class="card-body">-->
-<!--                  <a href="{% url 'editais_aberto' %}"  class="card-title"><h5>Alterar minha senha</h5></a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="card"><br>-->
-<!--                <a href="{% url 'editais_aberto' %}" align="center"> {% bs_icon 'key' size='2.8em' %}</a>-->
-<!--                <div class="card-body">-->
-<!--                  <a href="{% url 'editais_aberto' %}"  class="card-title"><h5>Alterar minha senha</h5></a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
     </div>
 {% endif %}
 

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load crispy_forms_tags %}
 {% block menu %}
 {% endblock %}
@@ -12,12 +13,9 @@
 {% block conteudo %}
 <div class="container">
     {% if user.is_anonymous %}
-        <p>deslogado</p>
-    {% else %}
-         <p>logado</p>
-    {% endif %}
+    <br><br>
 
-    <div align="center">
+<div align="center">
 
     <!--        <img src="/static/image/logo_1.png" alt="IFMT - Campus Várzea Grande" width="260" height="80">-->
         <a href="{% url 'index' %}"><img src="/static/image/logo_4.png" width="200" height="40" alt=""></a>
@@ -41,6 +39,36 @@
         </form>
     </div>
 </div>
+    {% else %}
+        <div class="container" align="center">
+            <br><br><br>
+            <h4>Não é possível registrar usuários, você já está logado na plataforma! </h4>
+            <p>Deslogue da sua conta e tente acessar esta página novamente. </p>
+            <a class="btn btn-danger" href="{% url 'index' %}">Voltar Página inicial</a>
+        <div>
+    {% endif %}
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#id_username").mask("000.000.000-00");
+
+            var SPMaskBehavior = function (val) {
+                return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+            },
+                spOptions = {
+                    onKeyPress: function(val, e, field, options) {
+                        field.mask(SPMaskBehavior.apply({}, arguments), options);
+                        }
+                    };
+
+            $('#id_telefone').mask(SPMaskBehavior, spOptions);
+
+        });
+    </script>
 {% endblock %}
 
 

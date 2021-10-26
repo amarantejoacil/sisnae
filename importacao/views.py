@@ -47,7 +47,6 @@ class ListDadosImportacaoView(ListView):
 
 
 class ProcessarDadosImportadosView(ListView):
-    print('processou')
     template_name = 'alunos_importados.html'
     model = Importacao
     #login_url = reverse_lazy('ListDadosImportacaoView')

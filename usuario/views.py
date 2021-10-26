@@ -33,23 +33,3 @@ class UsuarioCreate(CreateView):
     template_name = 'registrar_aluno.html'
     form_class = UsuarioForm
     success_url = reverse_lazy('painel_login_aluno')
-
-    # def form_valid(self, form):
-        # grupo = get_object_or_404(Group, name="Docentes")
-        # url = super().form_valid(form)
-
-        # depois de criar objeto
-        # self.object.groups.add(grupo)
-        # self.object.save()
-
-        # Perfil.objects.create(usuario=self.object)
-
-        # return url
-
-    # def get_context_data(self, *args, **kwargs):
-    #     context = super().get_context_data(*args, **kwargs)
-    #
-    #     context['titulo'] = 'Registro de novo usuario'
-    #     context['botao'] = 'cadastrar'
-    #
-    #     return context

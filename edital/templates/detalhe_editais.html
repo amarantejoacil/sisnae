@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load bootstrap_icons %}
 
 {% block conteudo %}
 <form method="GET">
@@ -13,26 +12,26 @@
             {% for e in detalhe_editais %}
                 {% if e.id == object.id %}
 
-                    <h6><mark>{% bs_icon 'pin-angle' size='1.3em' %} Informações Gerais</mark></h6>
+                    <h6><mark>-> Informações Gerais</mark></h6>
                     <h6><strong>Edital:</strong> N° {{ e.numero}}/{{ e.ano }}  - {{ e.semestre }}° Semestre</h6>
                     <h6><strong>Descrição:</strong> {{ e.edital_titulo }}</h6>
                     <h6><strong>Modalidade:</strong> {{ e.modalidade_edital }}</h6>
                     <h6><strong>Quantidade de vaga: </strong> {{ e.edital_quantidade_vaga }}</h6>
                     <h6><strong>Valor do auxílio:</strong> R$ {{ e.edital_valor_auxilio }}</h6>
                     <br>
-                    <h6><mark>{% bs_icon 'calendar-event' size='1.3em' %} Período de Inscrições :</mark></h6>
+                    <h6><mark>-> Período de Inscrições :</mark></h6>
                     <h6><strong>Início das Inscrições:</strong> {{ e.edital_datetime_ini }}</h6>
                     <h6><strong>Fim das Inscrições:</strong> {{ e.edital_datetime_fim }}</h6>
                     <br>
-                    <h6><mark>{% bs_icon 'pencil-square' size='1.3em' %} Período para correções dos dados após análise do Setor:</mark></h6>
+                    <h6><mark>-> Período para correções dos dados após análise do Setor:</mark></h6>
                     <h6><strong>Período de Correção:</strong> {{ e.edital_datetime_correcao_ini }}</h6>
                     <h6><strong>Fim das Inscrições:</strong> {{ e.edital_datetime_correcao_fim }}</h6>
                     <br>
                     {% if e.edital_status == True %}
-                        <h6><mark>{% bs_icon 'pencil-square' size='1.3em' %} Deseja se inscrever?</mark></h6>
+                        <h6><mark>Deseja se inscrever?</mark></h6>
                         <a class="btn btn-sm btn-outline-success" href="#"> Inscrições Abertas - Clique aqui!</a>
                     {% else %}
-                        <h6><mark>{% bs_icon 'pencil-square' size='1.3em' %} Deseja se inscrever?</mark></h6>
+                        <h6><mark>Deseja se inscrever?</mark></h6>
                         <a class="btn btn-sm btn-outline-danger" href="#"> Inscrições Encerradas!</a>
                     {% endif %}
 
@@ -42,7 +41,7 @@
             {% endfor %}
 
 <!--        Publicações -->
-<h5 align="center"><mark>{% bs_icon 'file-earmark-pdf' size='0.8em' %} Publicações</mark></h5>
+<h5 align="center"><mark>Publicações</mark></h5>
         <br>
         <table class="table table-striped">
           <thead>
@@ -65,7 +64,7 @@
               <td>{{ p.publicacao_descricao }}</td>
                 <td>
                    <a class="text-primary" href="{{ p.publicacao_anexo_arq.url }}" title="Download Anexo">
-                        {% bs_icon 'file-earmark-arrow-down' size='1.5em' %}
+                        Baixar arquivo
                    </a>
               </td>
             </tr>

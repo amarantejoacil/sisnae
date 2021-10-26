@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load bootstrap_icons %}
+
 
 
 {% block topo %}
@@ -21,7 +21,7 @@
 {% else %}
   <div class="album py-2 bg-light">
       <div class="container">
-      <h6 align="center"><mark>{% bs_icon 'pin-angle' size='1.3em' %}Todas Inscrições abertas</mark></h6>
+      <h6 align="center"><mark>Todas Inscrições abertas</mark></h6>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 {% for e in editais %}
                 {% if e.edital_status == True%}
