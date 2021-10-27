@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Inscricao, QuestionarioAnexo
+from .models import Inscricao, InscriçãoQuestionarioAnexo
 
 
 @admin.register(Inscricao)
@@ -10,7 +10,7 @@ class InscricaoAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 
-@admin.register(QuestionarioAnexo)
+@admin.register(InscriçãoQuestionarioAnexo)
 class QuestionarioAnexoAdmin(admin.ModelAdmin):
     list_display = ('id', 'inscricao', 'quest_aluno_anexo_tipo', 'quest_aluno_anexo_valor', 'quest_aluno_anexo_arq')
     list_display_links = ('id', 'inscricao', 'quest_aluno_anexo_tipo',)

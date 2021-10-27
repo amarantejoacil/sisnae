@@ -17,7 +17,7 @@ class Inscricao(Base):
     )
     situacao_obs = models.CharField('Observação da inscrição', max_length=200, null=True, blank=True)
     inscricao_situacao = models.IntegerField(choices=SITUACAO_INSCRICAO, default=1)
-    semestre = models.ForeignKey(Semestre, on_delete=models.PROTECT)
+    semestre_aluno = models.ForeignKey(Semestre, on_delete=models.PROTECT)
     # inscricao_dta_ini_correcao = models.DateTimeField('Data para correção', null=True, blank=True)
     # inscricao_dta_fim_correcao = models.DateTimeField('Data para correção', null=True, blank=True)
 
@@ -91,7 +91,7 @@ class Inscricao(Base):
         verbose_name_plural = 'Inscrições'
 
 
-class QuestionarioAnexo(Base):
+class InscriçãoQuestionarioAnexo(Base):
     inscricao = models.ForeignKey("Inscricao", on_delete=models.PROTECT)
     TIPO_ANEXO = (
         (1, "Valor Gasto com Van"),
