@@ -2,6 +2,10 @@ import django.views.generic
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.shortcuts import get_object_or_404
+from core.models import Pessoa
+from django.contrib.auth.mixins import LoginRequiredMixin
+from braces.views import GroupRequiredMixin
+
 
 
 from .forms import UsuarioForm
@@ -33,3 +37,4 @@ class UsuarioCreate(CreateView):
     template_name = 'registrar_aluno.html'
     form_class = UsuarioForm
     success_url = reverse_lazy('painel_login_aluno')
+

@@ -73,6 +73,7 @@ class Pessoa(Base):
     escolaridade_mae = models.IntegerField('Escolaridade da Mãe',
                                            choices=ESCOLARIDADE_CHOICES)
     pessoa_status = models.BooleanField('Pessoa ativa?', default=True)
+    pessoa_revisar_cadastro = models.BooleanField('Forçar o Pessoa Revisar cadastro?', default=False, null=True, blank=True)
 
     class Meta:
         verbose_name = 'Pessoa'

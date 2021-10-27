@@ -14,6 +14,8 @@ class Aluno(models.Model):
     AltPor = models.BigIntegerField('Alterado Por', null=True, blank=True)
     IncEm = models.DateTimeField('Incluido Em', auto_now_add=True)
     AltEm = models.DateTimeField('Alterado Em', auto_now=True)
+    aluno_revisar_cadastro = models.BooleanField('Forçar o aluno Revisar cadastro?', default=False, null=True,
+                                                  blank=True)
 
     def __str__(self):
         return "{} - Matrícula: {} - Curso:{}".format(self.pessoa.nome, self.aluno_matricula, self.curso.descricao)

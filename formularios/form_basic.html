@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+    <title>Formulário</title>
+{% endblock %}
+
+{% block conteudo %}
+
+<form action="" method="POST">
+        {% csrf_token %}
+
+        {{ form|crispy }}
+
+        <button type="submit" class="btn btn-primary">{{ botao }}
+
+
+        </button>
+</form>
+
+
+{% endblock %}
