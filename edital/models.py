@@ -22,15 +22,13 @@ class Edital(Base):
     edital_quantidade_vaga = models.IntegerField('Quantidade de vaga')
     edital_valor_auxilio = models.DecimalField('Valor do auxílio', max_digits=8, decimal_places=2)
 
-
-
     class Meta:
         verbose_name = 'Edital'
         verbose_name_plural = 'Editais'
 
     def __str__(self):
-        return str(self.edital_titulo) + ' (n° ' + str(self.numero) + '/' \
-               + str(self.ano) + ') Semestre: ' + str(self.semestre_edital) + '° Semestre'
+        return 'Edital: N° ' + str(self.numero) + '/' \
+               + str(self.ano) + ' | ' + str(self.edital_titulo)
 
 
 class PublicacaoEdital(Base):
